@@ -4,8 +4,10 @@ gem 'activerecord'
 gem 'pg'
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-activerecord'
+gem 'simplecov'
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
   gem 'rack-test'
