@@ -15,4 +15,6 @@ group :development, :test do
   gem 'rspec-core'
   gem 'shotgun'
   gem 'tux'
+  gem 'csv'
+  gem 'pry'
 end

@@ -1,5 +1,11 @@
-merchants = CSV.open('./data/merchants.csv') headers: true
+require 'csv'
+require './app/models/merchant.rb'
+merchants = CSV.open('./data/merchants.csv',
+                     headers: true,
+                     header_converters: :symbol)
 merchants.each do |merchant|
-  require "pry"; binding.pry
-  Merchant.create()
+  Merchant.create(merchant_id:  merchant[:id],
+                  name:         merchant[:name],
+                  created_at:   merchant[:created_at],
+                  updated_at:   merchant[:updated_at])
 end
