@@ -9,3 +9,15 @@ merchants.each do |merchant|
                   created_at:   merchant[:created_at],
                   updated_at:   merchant[:updated_at])
 end
+
+items = CSV.open('./data/items.csv',
+                 headers: true,
+                 header_converters: :symbol)
+items.each do |item|
+  Item.create(item_id:      item[:id],
+              name:         item[:name],
+              description:  item[:description],
+              unit_price:   item[:unit_price],
+              created_at:   item[:created_at],
+              updated_at:   item[:updated_at])
+end
