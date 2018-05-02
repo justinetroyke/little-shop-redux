@@ -33,6 +33,19 @@ RSpec.describe Item do
         expect(Item.all.first.unit_price).to eq(15)
       end
     end
+
+    describe '.update' do
+      it 'updates an existing item' do
+        Item.create(item_id: 2, description: "New thing", name: "Newer Thing", unit_price: 15, created_at: "2002-11-18 00:00:00", updated_at: "2007-10-09 00:00:00")
+        Item.create(item_id: 3, description: "Hello", name: "Nope", unit_price: 17, created_at: "2002-11-18 00:00:00", updated_at: "2007-10-09 00:00:00")
+        Item.create(item_id: 4, description: "Never again", name: "Go Away", unit_price: 11, created_at: "2002-11-18 00:00:00", updated_at: "2007-10-09 00:00:00")
+        update_parameters = {description: "Nah", name: "Laugh"}
+        Item.update(2, update_parameters)
+
+        expect(Item.find_by(item_id: 2).name).to eq("Laugh")
+        expect(Item.find_by(item_id: 2).description).to eq("Nah")
+      end
+    end
   end
 
 end
