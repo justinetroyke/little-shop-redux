@@ -1,5 +1,6 @@
 require 'csv'
 require './app/models/merchant.rb'
+
 merchants = CSV.open('./data/merchants.csv',
                      headers: true,
                      header_converters: :symbol)

@@ -6,4 +6,8 @@ class Item < ActiveRecord::Base
     item.update(update_parameters)
   end
 
+  def self.delete(item_id)
+    item = Item.find_by(item_id: item_id)
+    item.destroy
+  end
 end
