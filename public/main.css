@@ -1,9 +1,25 @@
 h1 {
     color: red;
     text-align: center;
+
   }
+h3 {
+  color: black;
+  bottom: 20px;
+}
 
 div {
-  color: red;
+  color: blue;
+}
 
+.editbutton {
+  background-color: yellow;
+}
+
+.deletebutton {
+  background-color: red;
+}
+
+.merchants {
+  
 }
