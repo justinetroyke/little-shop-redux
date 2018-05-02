@@ -1,7 +1,7 @@
 class LittleShopApp < Sinatra::Base
 
   get '/' do
-    'hello world'
+    erb :"homepage/index"
   end
 
   get '/merchants' do

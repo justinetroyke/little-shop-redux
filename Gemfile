@@ -16,5 +16,4 @@ group :development, :test do
   gem 'shotgun'
   gem 'tux'
   gem 'csv'
-  gem 'pry'
 end
