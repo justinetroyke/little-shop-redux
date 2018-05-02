@@ -1,5 +1,9 @@
+<link rel="stylesheet" href="/main.css" title="CSS" type="text/css" />
+<h1> Merchants </h1>
+<center><button type="button">Create A New Merchant</button></center>
+<br>
 <% @merchants.each do |merchant| %>
+<div style="width:800px;height:25px;border:1px solid #000;"><%= merchant.name%></div>
 
-<h3><%= merchant.name %></h3>
-
+  <br>
 <% end %>
