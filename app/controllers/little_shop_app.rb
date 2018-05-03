@@ -4,12 +4,6 @@ class LittleShopApp < Sinatra::Base
     erb :"homepage/index"
   end
 
-  get '/merchants' do
-    @merchants = Merchant.all
-
-    erb :"merchants/index"
-  end
-
   get '/merchants/new' do
     erb :'merchants/create'
   end
