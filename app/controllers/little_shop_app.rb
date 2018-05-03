@@ -19,7 +19,7 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/edit"
   end
 
-  get '/merchants/:id/delete' do
+  delete '/merchants/:id/delete' do
     merchant = Merchant.find(params['id'])
     Merchant.delete(merchant)
     redirect '/merchants'
@@ -56,11 +56,11 @@ class LittleShopApp < Sinatra::Base
     erb :"item/index"
   end
 
-  get '/create-an-item' do
+  get '/items/new' do
     erb :"item/create_an_item"
   end
 
-  post '/create-an-item' do
+  post '/items/new' do
     Item.create(params[:item])
 
     redirect '/'

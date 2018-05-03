@@ -28,7 +28,7 @@ items.each do |item|
               name:         item[:name],
               description:  item[:description],
               unit_price:   item[:unit_price],
-              image:        'https://i.imgur.com/iXHefKS.png',
+              image:        'https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg',
               created_at:   item[:created_at],
               updated_at:   item[:updated_at])
 end
