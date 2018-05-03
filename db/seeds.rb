@@ -1,5 +1,10 @@
 require 'csv'
+require 'database_cleaner'
 require File.expand_path("../../config/environment", __FILE__)
+
+DatabaseCleaner.strategy = :truncation
+
+DatabaseCleaner.clean
 
 invoices = CSV.open('./data/invoices.csv',
                      headers: true,
