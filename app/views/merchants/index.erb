@@ -4,9 +4,9 @@
 <header>
   <h3>
     <a href='/'>Little Shop</a>
-    <button class ="invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
-    <button class ="items" onclick="location.href='/items'" type="button"> Items</button>
-    <button class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
+    <button class ="invoices" href='/invoices' type="button"> Invoices</button>
+    <button class ="items" href='/items' type="button"> Items</button>
+    <button class="merchants" href='/merchants' type="button"> Merchants</button>
   </h3>
 </header>
 
@@ -23,11 +23,14 @@
 
 <% @merchants.each do |merchant| %>
 <center>
-  <div style="width:1000px;height:25px;border:3px solid #000;">
-    <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
-    <button style="float:right;" class = 'deletebutton'onclick="location.href='/merchants/<%=merchant.id%>/delete'" type="button" method="DELETE"> Delete</button>
-    <button style="float:right;" class = 'editbutton'onclick="location.href='/merchants/<%=merchant.id%>/edit'" type="button"> Edit</button>
-  </div>
+  <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <div style="width:1000px;height:25px;border:3px solid #000;">
+      <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+      <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
+      <button style="float:right;" class='editbutton' href='/merchants/<%=merchant.id%>/edit'> Edit</button>
+    </div>
+  </form>
 </center>
 
 <br>
