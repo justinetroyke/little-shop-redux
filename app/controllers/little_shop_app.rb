@@ -1,6 +1,5 @@
 class LittleShopApp < Sinatra::Base
 
-<<<<<<< HEAD
   get '/' do
     erb :"homepage/index"
   end
@@ -37,19 +36,20 @@ class LittleShopApp < Sinatra::Base
     merchant.update(params['merchant'])
     merchant.save
     redirect "/merchants/#{merchant.id}"
-=======
+  end
+  
   get '/merchants' do
     @merchants = Merchant.all
 
     erb :'merchant/index'
   end
 
-<<<<<<< HEAD
   get '/invoices' do
     @invoices = Invoice.all
 
     erb :'invoice/index'
-=======
+  end
+  
   get '/items' do
     @items = Item.all
 
@@ -64,7 +64,5 @@ class LittleShopApp < Sinatra::Base
     Item.create(params[:item])
 
     redirect '/'
->>>>>>> b7ea58aae6fcf46669678d5b71e3eef210786bcd
->>>>>>> master
   end
 end
