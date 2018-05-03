@@ -1,0 +1,122 @@
+<<<<<<< HEAD
+h1 {
+    color: red;
+    text-align: center;
+
+  }
+h3 {
+  color: black;
+  bottom: 20px;
+}
+
+div {
+  color: blue;
+}
+
+.editbutton {
+  background-color: yellow;
+}
+
+.items {
+
+}
+
+.deletebutton {
+  background-color: red;
+}
+
+.create-button {
+  text-align: center;
+  border: 7px solid green ;
+  background-color: pink;
+}
+.submit-button {
+  text-align: center;
+  border: 7px solid green ;
+  background-color: pink;
+}
+.cancel-button {
+  text-align: center;
+  border: 7px solid red ;
+  background-color: pink;
+}
+
+.invoices{
+  border: 3px solid red ;
+  background-color: pink;
+}
+
+.items{
+  border: 3px solid dimgray ;
+  background-color: pink;
+}
+
+.merchants{
+  border: 3px solid green ;
+  background-color: pink;
+=======
+.column img {
+  display: block;
+  width: 85%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding-top: 45px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.name {
+  padding: 15px;
+  text-align: center;
+  line-height: 1;
+}
+
+.price {
+  text-align: center;
+  padding-bottom: 45px;
+  line-height: 80%;
+}
+
+.secondary-header h1, button {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.secondary-header button {
+  padding: 10px 25px 10px 25px;
+  font-size: 20px;
+}
+
+.secondary-header h1 {
+  font-size: 55px;
+}
+
+.secondary-header {
+  border-right: 25px black;
+  padding-top: 50px;
+  padding-bottom: 45px;
+  background: rgb(110, 107, 106);
+}
+
+/* .secondary-header h1 {
+  padding-left: -1000px;
+} */
+
+.secondary-header a {
+  position: absolute;
+  left: 15;
+  font-size: 25px;
+>>>>>>> master
+}
