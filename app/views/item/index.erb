@@ -15,19 +15,17 @@
 
     <table>
       <tr>
-        <th>
           <% @items.each_slice(@items.length/4) do |items| %>
             <div class="column">
               <% items.each do |item| %>
                 <a href="#">
-                  <img src='https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg' alt="Steve loves chairs">
+                  <img src='https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg' alt="Guy looks at phone with girl">
                 </a>
                 <div class='name'><%= item.name %></div>
                 <div class='price'>$<%= '%.2f' % (item.unit_price.to_f/100) %></div>
               <% end %>
             </div>
           <% end %>
-        </th>
       </tr>
     </table>
 
