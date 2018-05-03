@@ -4,9 +4,18 @@
     <title>Create New Item</title>
     <link rel="stylesheet" href="/create_item.css" title="text/css">
     <link rel="stylesheet" href="/item_main.css" title="text/css">
+    <link rel="stylesheet" href="/common_header.css" title="text/css">
   </head>
   <body>
     <header>
+      <h3>
+        <form>
+          <a href='/' class="homepage-link">Little Shop</a>
+          <a href="/invoices">Invoices</a>
+          <a href="/items">Items</a>
+          <a href="/merchants">Merchants</a>
+        </form>
+      </h3>
     </header>
     <div class="secondary-header">
       <h1>Items</h1>
@@ -25,9 +34,11 @@
         <input type="text" name="item[image]" placeholder="Image URL">
         <br>
         <br>
+        <button type="submit" id="create-button">Create New Item</button>
       </form>
-      <button id="cancel-button" onclick="location.href='/'" method="GET">Cancel</button>
-      <button id="create-button" onclick="location.href='/items/'">Submit</button>
+      <form>
+        <button formaction="/items" type="submit" id="cancel-button">Cancel</button>
+      </form>
     </div>
   </body>
 </html>
