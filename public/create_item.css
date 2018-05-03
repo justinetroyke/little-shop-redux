@@ -1,0 +1,33 @@
+/* input[type=text] {
+  margin: auto;
+} */
+
+form {
+  text-align: center;
+}
+
+#cancel-button {
+  float: left;
+}
+
+#create-button {
+  float: right;
+}
+
+.box {
+  width: 700px;
+  height: 735px;
+  padding: 10px 35px 10px 35px;
+  border: 5px solid black;
+  margin: 10px auto auto auto;
+
+}
+
+input {
+  font-size: 25px;
+}
+
+p {
+  font-size: 45px;
+  line-height: .2;
+}
