@@ -25,6 +25,12 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/edit"
   end
 
+  get '/merchants/:id/delete' do
+    merchant = Merchant.find(params['id'])
+    Merchant.delete(merchant)
+    redirect '/merchants'
+  end
+
   post '/merchants' do
     merchant = Merchant.create(params['merchant'])
 

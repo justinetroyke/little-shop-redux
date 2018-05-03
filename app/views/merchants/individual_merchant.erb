@@ -13,7 +13,7 @@
   <center>
     <h1> <%= @merchant.name %> </h1>
     <button class = 'editbutton'onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button"> Edit</button>
-    <button class = 'deletebutton'onclick="location.href='/'" type="button"> Delete</button>
+    <button class = 'deletebutton'onclick="location.href='/merchants/<%=@merchant.id%>/delete'" type="button"> Delete</button>
   </center>
 </div>
 <ul>
