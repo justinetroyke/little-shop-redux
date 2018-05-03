@@ -39,7 +39,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants' do
-    @merchants = Merchant.all
+    @merchants = Merchant.all.sort_by(&:name)
 
     erb :"merchants/index"
   end
