@@ -39,18 +39,3 @@ div {
   border: 7px solid red ;
   background-color: pink;
 }
-
-.invoices{
-  border: 3px solid red ;
-  background-color: pink;
-}
-
-.items{
-  border: 3px solid dimgray ;
-  background-color: pink;
-}
-
-.merchants{
-  border: 3px solid green ;
-  background-color: pink;
-}

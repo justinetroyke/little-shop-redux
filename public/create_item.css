@@ -6,6 +6,11 @@ form {
   text-align: center;
 }
 
+button {
+  padding: 5px 15px;
+  font-size: 20px;
+}
+
 #cancel-button {
   float: left;
 }
@@ -16,11 +21,10 @@ form {
 
 .box {
   width: 700px;
-  height: 735px;
+  height: 755px;
   padding: 10px 35px 10px 35px;
   border: 5px solid black;
   margin: 10px auto auto auto;
-
 }
 
 input {
