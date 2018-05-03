@@ -2,7 +2,7 @@
 
 <div style="width:relative;height:40px;border:3px solid #000;">
   <h3>
-    <a href='/'>Little Shop</a> 
+    <a href='/'>Little Shop</a>
     <button style="float:right;" class = "invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
     <button style="float:right;" class ="items" onclick="location.href='/items'" type="button"> Items</button>
     <button style="float:right;" class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
@@ -10,24 +10,15 @@
 </div>
 
 <div style="width:relative;height:100px;border:3px solid #000;">
-  <h1> Merchants </h1>
   <center>
-    <button onclick="location.href='/'" action = 'get' type="button">
-      Create A New Merchant
-    </button>
+    <h1> <%= @merchant.name %> </h1>
+    <button class = 'editbutton'onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button"> Edit</button>
+    <button class = 'deletebutton'onclick="location.href='/'" type="button"> Delete</button>
   </center>
 </div>
-
-<br>
-
-<% @merchants.each do |merchant| %>
-<center>
-  <div style="width:1000px;height:25px;border:3px solid #000;">
-    <a href='/' style="float:left;"><%= merchant.name%></a>
-    <button style="float:right;" class = 'deletebutton'onclick="location.href='/'" type="button"> Delete</button>
-    <button style="float:right;" class = 'editbutton'onclick="location.href='/'" type="button"> Edit</button>
-  </div>
-</center>
-
-<br>
-<% end %>
+<ul>
+  <li>Merchant name = <%= @merchant.name %></li>
+  <li>Merchant id = <%= @merchant.id %></li>
+  <li>Merchant created_at = <%= @merchant.created_at %></li>
+  <li>Merchant updated_at = <%= @merchant.updated_at %></li>
+</ul>
