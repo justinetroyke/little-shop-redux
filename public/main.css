@@ -1,5 +1,5 @@
 h1 {
-    color: black;
+    color: red;
     text-align: center;
 
   }
@@ -16,21 +16,8 @@ div {
   background-color: yellow;
 }
 
-.edit-rectangle {
-  background-color: rgb(110, 107, 106);
-}
-
 .items {
 
-}
-
-.update-merchant {
-  border: 10003px;
-
-}
-
-.new-name {
-  padding-left: 10px;
 }
 
 .deletebutton {
@@ -50,5 +37,20 @@ div {
 .cancel-button {
   text-align: center;
   border: 7px solid red ;
+  background-color: pink;
+}
+
+.invoices{
+  border: 3px solid red ;
+  background-color: pink;
+}
+
+.items{
+  border: 3px solid dimgray ;
+  background-color: pink;
+}
+
+.merchants{
+  border: 3px solid green ;
   background-color: pink;
 }

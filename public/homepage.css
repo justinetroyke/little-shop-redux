@@ -1,16 +1,16 @@
-.invoices{
+.invoices {
   background-color: pink;
   height: 400px;
   width: 33%;
 }
 
-.items{
+.items {
   height: 400px;
   background-color: dimgray;
   width: 33%;
 }
 
-.merchants{
+.merchants {
   height: 400px;
   background-color: yellow;
   width: 33%;

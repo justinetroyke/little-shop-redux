@@ -8,13 +8,13 @@
     <button style="float:right;" class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
   </h3>
 </div>
-<div style="width:relative;height:100px;border:3px solid #000;">
+<div class="edit-rectangle"style="width:relative;height:100px;border:3px solid #000;">
   <h1>Edit <%=@merchant.name%></h1>
 </div>
 <div style="width:relative;height:100%;border:3px solid #000;">
   <center>
       <div style="width:50%;height:50%;border:3px solid #000;">
-        <h3> Name </h3>
+        <h3 class="new-name"> Name </h3>
         <form class="update_merchant" action="/merchant/<%=@merchant.id%>" method="post">
           <input type="text" name="merchant[name]" placeholder="Please Enter New Name">
           <br>
@@ -33,7 +33,7 @@
           <br>
           <input class ="submit-button"  type="submit" value="Submit">
         </form>
-        <button class ="cancel-button" onclick="location.href='/merchants'">Cancel</button>
       </div>
+      <button class ="cancel-button" onclick="location.href='/merchants'">Cancel</button>
   </center>
 </div>

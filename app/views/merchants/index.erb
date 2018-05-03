@@ -1,19 +1,24 @@
-<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
-<link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css" />
+<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
+<link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
 
 <header>
   <h3>
-    <a href='/'>Little Shop</a>
-    <button class ="invoices" href='/invoices' type="button"> Invoices</button>
-    <button class ="items" href='/items' type="button"> Items</button>
-    <button class="merchants" href='/merchants' type="button"> Merchants</button>
+    <a class="name" href='/'>Little Shop</a>
+    <a style="float:right;" class="invoices" href='/invoices'>
+      Invoices</a>
+    <a style="float:right;" class="items" href='/items'>
+      Items</a>
+    <a style="float:right;" class="merchants" href='/merchants'>
+      Merchants</a>
   </h3>
 </header>
 
 <div style="width:relative;height:100px;border:3px solid #000;">
-  <h1> Merchants </h1>
+  <h1>
+    Merchants
+  </h1>
   <center>
-    <button onclick="location.href='/merchants/new'" action = 'get' type="button">
+    <button onclick="location.href='/merchants/new'" action='get' type="button">
       Create A New Merchant
     </button>
   </center>
@@ -22,16 +27,18 @@
 <br>
 
 <% @merchants.each do |merchant| %>
-<center>
-  <form action="/merchants/<%=merchant.id%>/delete" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
+  <center>
     <div style="width:1000px;height:25px;border:3px solid #000;">
-      <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
-      <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
-      <button style="float:right;" class='editbutton' href='/merchants/<%=merchant.id%>/edit'> Edit</button>
+      <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+        <button style="float:right;" type="submit" class='deletebutton'>
+          Delete</button>
+      </form>
+      <button style="float:right;" class='editbutton' onclick="location.href='/merchants/<%=merchant.id%>/edit'">
+        Edit</button>
     </div>
-  </form>
-</center>
+  </center>
 
-<br>
+  <br>
 <% end %>
