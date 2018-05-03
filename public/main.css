@@ -1,0 +1,56 @@
+/* .gallery {
+  margin: 5px;
+  float: left;
+  width: 180px;
+  columns: 100px 4;
+  -moz-columns: 100px 4;
+  column-gap: 250px;
+  column-rule-style: solid;
+  column-rule-color: 1px solid lightblue;
+}
+
+.gallery first-column {
+  width: 250px;
+}
+
+.gallery second-column {
+  column-width: 250px;
+}
+
+.gallery third-column {
+  column-width: 250px;
+}
+
+.gallery fourth-column {
+  column-width: 250px;
+} */
+
+.column img {
+  display: block;
+  width: 350px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.name {
+  padding: 15px;
+  text-align: center;
+  line-height: 2;
+}
+
+.price {
+  text-align: center;
+  padding-bottom: 45px;
+}

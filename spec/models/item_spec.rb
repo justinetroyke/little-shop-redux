@@ -48,8 +48,8 @@ RSpec.describe Item do
         update_parameters = {description: "Nah", name: "Laugh"}
         Item.update(2, update_parameters)
 
-        expect(Item.find_by(item_id: 2).name).to eq("Laugh")
-        expect(Item.find_by(item_id: 2).description).to eq("Nah")
+        expect(Item.find(2).name).to eq("Laugh")
+        expect(Item.find(2).description).to eq("Nah")
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Item do
         Item.create(item_id: 4, description: "Never again", name: "Go Away", unit_price: 11, image: 'https://i.imgur.com/iXHefKS.png', created_at: "2002-11-18 00:00:00", updated_at: "2007-10-09 00:00:00")
         Item.delete(2)
 
-        expect(Item.find_by(item_id: 2)).to eq(nil)
+        expect(Item.find_by_id(2)).to be_nil
       end
     end
   end
