@@ -37,11 +37,11 @@ class LittleShopApp < Sinatra::Base
     merchant.save
     redirect "/merchants/#{merchant.id}"
   end
-  
+
   get '/merchants' do
     @merchants = Merchant.all
 
-    erb :'merchant/index'
+    erb :"merchants/index"
   end
 
   get '/invoices' do
@@ -49,7 +49,7 @@ class LittleShopApp < Sinatra::Base
 
     erb :'invoice/index'
   end
-  
+
   get '/items' do
     @items = Item.all
 
