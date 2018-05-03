@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New Item</title>
+    <link rel="stylesheet" href="main.css" title="text/css">
+    <link rel="stylesheet" href="create_item.css" title="text/css">
+  </head>
+  <body>
+    <header>
+    </header>
+    <div class="secondary-header">
+      <h1>Items</h1>
+    </div>
+    <div class="box">
+      <form class="new-item" action="/create-an-item" method="POST">
+        <p>Merchant</p>
+        <input type="text" name="item[merchant_id]" value="Merchant">
+        <p>Title</p>
+        <input type="text" name="item[title]" value="Year">
+        <p>Description</p>
+        <input type="text" name="item[description]" value="Sales">
+        <p>Price</p>
+        <input type="number" name="item[unit_price]" value="Price">
+        <p>Image URL</p>
+        <input type="text" name="item[image]" value="Image URL">
+        <br>
+        <br>
+        <input type="submit" id="cancel-button" value="Cancel">
+        <input type="submit" id="create-button" value="Create Item">
+      </form>
+    </div>
+  </body>
+</html>

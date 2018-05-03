@@ -1,0 +1,64 @@
+.column img {
+  display: block;
+  width: 85%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding-top: 45px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.name {
+  padding: 15px;
+  text-align: center;
+  line-height: 1;
+}
+
+.price {
+  text-align: center;
+  padding-bottom: 45px;
+  line-height: 80%;
+}
+
+.secondary-header h1, button {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.secondary-header button {
+  padding: 10px 25px 10px 25px;
+  font-size: 20px;
+}
+
+.secondary-header h1 {
+  font-size: 55px;
+}
+
+.secondary-header {
+  border-right: 25px black;
+  padding-top: 50px;
+  padding-bottom: 45px;
+  background: rgb(110, 107, 106);
+}
+
+/* .secondary-header h1 {
+  padding-left: -1000px;
+} */
+
+.secondary-header a {
+  position: absolute;
+  left: 15;
+  font-size: 25px;
+}

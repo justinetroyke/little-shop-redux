@@ -1,4 +1,3 @@
-require './app/models/merchant.rb'
 RSpec.describe Merchant do
   describe 'validations' do
     describe 'required fields' do

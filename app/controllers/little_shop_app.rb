@@ -1,14 +1,24 @@
 class LittleShopApp < Sinatra::Base
 
-  get '/' do
+  get '/merchants' do
     @merchants = Merchant.all
 
     erb :"merchant/index"
   end
 
-  get '/merchants' do
-    @merchants = Merchant.all
+  get '/items' do
+    @items = Item.all
 
-    erb :"merchant/index"
+    erb :"item/index"
+  end
+
+  get '/create-an-item' do
+    erb :"item/create_an_item"
+  end
+
+  post '/create-an-item' do
+    Item.create(params[:item])
+
+    redirect '/'
   end
 end
