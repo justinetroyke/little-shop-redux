@@ -42,8 +42,6 @@ div.merchant-middle-header {
   background-color: rgb(110, 107, 106);
 }
 
-.items {}
-
 .update-merchant {
   border: 10003px;
 }
@@ -92,4 +90,28 @@ div.merchant-middle-header {
   float: left;
   padding-left: 30px;
   padding-top: 190px;
+}
+
+.individualmerchant {
+  width: relative;
+  height: 40px;
+  border: 3px solid #000;
+}
+
+.second-box-individual-merchant {
+  background-color: rgb(110, 107, 106);
+  width: relative;
+  height: 120px;
+  border: 3px solid #000;
+}
+
+.individualedit {
+  padding: 5px 20px;
+  margin-right: 100px;
+  background-color: yellow;
+}
+
+.individualdelete {
+  padding: 5px 20px;
+  background-color: red;
 }
