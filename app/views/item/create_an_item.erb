@@ -23,9 +23,13 @@
     <div class="box">
       <form class="new-item" action="/items/new" method="POST">
         <p>Merchant</p>
-        <input type="text" name="item[merchant_id]" placeholder="Merchant">
+        <select name="item[merchant_id]">
+          <% @merchants.each do |merchant| %>
+            <option value="<%= merchant.merchant_id %>"><%= merchant.name %></option>
+          <% end %>
+        </select>
         <p>Title</p>
-        <input type="text" name="item[title]" placeholder="Year">
+        <input type="text" name="item[name]" placeholder="Title">
         <p>Description</p>
         <input type="text" name="item[description]" placeholder="Sales">
         <p>Price</p>

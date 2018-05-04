@@ -57,13 +57,27 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/new' do
+    @merchants = Merchant.all
+
     erb :"item/create_an_item"
   end
 
   post '/items/new' do
-    require 'pry'; binding.pry
     Item.create(params[:item])
 
     redirect '/'
+  end
+
+  get '/items/:id' do
+    @item = Item.find(params[:id])
+    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+
+    erb :"item/individual_item"
+  end
+
+  delete '/items/delete/:id' do
+    Item.delete(params[:id])
+
+    redirect '/items'
   end
 end

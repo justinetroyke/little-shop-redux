@@ -1,14 +1,14 @@
 require 'csv'
 require 'database_cleaner'
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 DatabaseCleaner.strategy = :truncation
 
 DatabaseCleaner.clean
 
 invoices = CSV.open('./data/invoices.csv',
-                     headers: true,
-                     header_converters: :symbol)
+                    headers: true,
+                    header_converters: :symbol)
 invoices.each do |invoice|
   Invoice.create(
     id:             invoice[:id],
@@ -28,6 +28,7 @@ items.each do |item|
               name:         item[:name],
               description:  item[:description],
               unit_price:   item[:unit_price],
+              merchant_id:  item[:merchant_id],
               image:        'https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg',
               created_at:   item[:created_at],
               updated_at:   item[:updated_at])
