@@ -14,12 +14,14 @@
     <h1>
       <%= @merchant.name %>
     </h1>
-    <button class='individualedit' onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button">
-      Edit</button>
-    <button class='individualdelete' onclick="location.href='/merchants/<%=@merchant.id%>/delete'" type="button" formmethod="DELETE">
-      Delete</button>
+    <button class='individualedit' onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button">Edit</button>
+    <form action="/merchants/<%=@merchant.id%>/delete" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class='individualdelete' type="submit">Delete</button>
+    </form>
   </center>
 </div>
+
 <ul>
   <li>Merchant name =
     <%= @merchant.name %></li>
