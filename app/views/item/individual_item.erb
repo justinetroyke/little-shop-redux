@@ -19,7 +19,9 @@
     </header>
     <div class="secondary-header">
       <a href="/" method="GET">Dashboard</a>
-      <h1><%= @item.name %></h1>
+      <div class="item-name">
+        <h2><%= @item.name %></h2>
+      </div>
       <div class="flex-container">
         <div>
           <form action="/items/delete/<%= @item.id %>" method="POST">
@@ -29,7 +31,7 @@
         </div>
         <div>
           <form>
-            <button formaction="/items/edit/<%= @item.id %>" type="submit">Edit</button>
+            <button formaction="/items/update/<%= @item.id %>" type="submit">Edit</button>
           </form>
         </div>
       </div>

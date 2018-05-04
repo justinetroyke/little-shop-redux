@@ -24,21 +24,16 @@
         <button formaction="/items/new" type="submit">Create a New Item</button>
       </form>
     </div>
-
-    <table>
-      <tr>
-        <% @items.each_slice(@items.length/4) do |items| %>
-          <div class="column">
-            <% items.each do |item| %>
-              <a href="/items/<%= item.id %>">
-                <img src='<%= item.image%>' alt="Guy looks at phone with girl">
-                <div class='name'><%= item.name %></div>
-              </a>
-              <div class='price'>$<%= '%.2f' % (item.unit_price.to_f/100) %></div>
-            <% end %>
-          </div>
-        <% end %>
-      </tr>
-    </table>
+    <div class="flex-container">
+      <% @items.each do |item| %>
+        <div>
+          <a href="/items/<%= item.id %>">
+            <img src='<%= item.image%>' alt="Guy looks at phone with girl">
+            <div class='name'><%= item.name %></div>
+          </a>
+          <div class='price'>$<%= '%.2f' % (item.unit_price.to_f/100) %></div>
+        </div>
+      <% end %>
+    </div>
   </body>
 </html>

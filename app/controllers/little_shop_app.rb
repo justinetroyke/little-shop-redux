@@ -75,6 +75,18 @@ class LittleShopApp < Sinatra::Base
     erb :"item/individual_item"
   end
 
+  get '/items/update/:id' do
+    @merchants = Merchant.all
+    @item = Item.find(params[:id])
+    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+
+    erb :"item/update_an_item"
+  end
+
+  post '/items/update' do
+    Item.update(params[:id], params[:item])
+  end
+
   delete '/items/delete/:id' do
     Item.delete(params[:id])
 
