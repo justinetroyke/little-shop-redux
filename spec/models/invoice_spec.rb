@@ -28,6 +28,14 @@ RSpec.describe Invoice do
   end
 
   describe 'Class Methods' do
-    describe '.update'
+    describe '.update' do
+      invoice = Invoice.create(
+        id: 1,
+        customer_id: 1,
+        merchant_id: 300,
+        created_at: '2009-02-07',
+        updated_at: '2014-03-15'
+      )
+    end
   end
 end
