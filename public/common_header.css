@@ -3,12 +3,16 @@ header button {
 }
 
 a {
-  padding-right: 10px;
+  margin-left: 12px;
+  font-size: 20;
+  float: right;
   text-decoration: none;
 }
 
 a.name {
-  padding-left: 10px;
+  float: left;
+  font-size: 23;
+  padding-left: 10;
 }
 
 header {

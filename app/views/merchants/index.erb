@@ -1,26 +1,21 @@
 <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
 <link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
-
-<header>
+<div style="width:relative;height:40px;border:3px solid #000;">
   <h3>
     <a class="name" href='/'>Little Shop</a>
-    <a style="float:right;" class="invoices" href='/invoices'>
-      Invoices</a>
-    <a style="float:right;" class="items" href='/items'>
-      Items</a>
-    <a style="float:right;" class="merchants" href='/merchants'>
-      Merchants</a>
+    <a href='/invoices'>Invoices</a>
+    <a href='/items'>Items</a>
+    <a href='/merchants'>Merchants</a>
   </h3>
-</header>
+</div>
 
-<div style="width:relative;height:100px;border:3px solid #000;">
-  <h1>
-    Merchants
-  </h1>
+<div class="merchant-middle-header">
+  <a class="dashboard" href='/'>Dashboard</a>
+  <h1>Merchants</h1>
   <center>
-    <button onclick="location.href='/merchants/new'" action='get' type="button">
-      Create A New Merchant
-    </button>
+    <form>
+      <button class="creater-button" formaction="/merchants/new" type="submit">Create A New Merchant</button>
+    </form>
   </center>
 </div>
 
