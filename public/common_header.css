@@ -1,20 +1,18 @@
 header button {
-  float:right;
+  float: right;
 }
 
-.invoices{
-  border: 3px solid red ;
-  background-color: pink;
+a {
+  margin-left: 12px;
+  font-size: 20;
+  float: right;
+  text-decoration: none;
 }
 
-.items{
-  border: 3px solid dimgray ;
-  background-color: pink;
-}
-
-.merchants{
-  border: 3px solid green ;
-  background-color: pink;
+a.name {
+  float: left;
+  font-size: 23;
+  padding-left: 10;
 }
 
 header {

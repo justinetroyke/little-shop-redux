@@ -1,5 +1,4 @@
 class LittleShopApp < Sinatra::Base
-
   get '/' do
     erb :"homepage/index"
   end
@@ -8,7 +7,7 @@ class LittleShopApp < Sinatra::Base
     erb :'merchants/create'
   end
 
-  get'/merchants/:id' do
+  get '/merchants/:id' do
     @merchant = Merchant.find(params['id'])
 
     erb :"merchants/individual_merchant"
@@ -43,7 +42,7 @@ class LittleShopApp < Sinatra::Base
   get '/merchants' do
     @merchants = Merchant.all.sort_by(&:name)
 
-    erb :'merchants/index'
+    erb :"merchants/index"
   end
 
   get '/invoices' do
@@ -66,5 +65,14 @@ class LittleShopApp < Sinatra::Base
     Item.create(params[:item])
 
     redirect '/'
+  end
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+
+    erb :"merchants/dashboard"
+  end
+  not_found do
+    404
   end
 end
