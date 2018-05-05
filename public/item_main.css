@@ -21,6 +21,7 @@ img {
 .flex-container {
   display: flex;
   flex-flow: row wrap;
+  border: 2px solid black;
 }
 
 .flex-container>* {

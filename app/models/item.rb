@@ -12,4 +12,16 @@ class Item < ActiveRecord::Base
     item = Item.find(item_id)
     item.destroy
   end
+
+  def self.average_price
+    average(:unit_price)
+  end
+
+  def self.most_recently_created
+    Item.all.sort_by(&:updated_at).reverse.first
+  end
+  
+  def self.oldest_item
+    Item.all.sort_by(&:created_at).first
+  end
 end

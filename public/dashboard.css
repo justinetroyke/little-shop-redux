@@ -1,0 +1,44 @@
+.flex-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flex-container>* {
+  width: 25%;
+  margin-top: 25px;
+  border: 3px solid black;
+  height: 100%;
+}
+
+#item-count {
+  text-align: center;
+  margin-right: 25px;
+}
+
+#item-avg-price {
+  text-align: center;
+  margin-right: 25px;
+}
+
+#item-age {
+  margin-left: 10px;
+  margin-top: -20px;
+}
+
+h6 {
+  font-size: 55px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 65px;
+}
+
+h5 {
+  font-size: 45px;
+  text-decoration: underline;
+}
+
+#item {
+  float: right;
+}
