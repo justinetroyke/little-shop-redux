@@ -29,6 +29,8 @@
         <div id="individual-item">
           <a href="/items/<%= item.id %>">
             <img src='<%= item.image%>' alt="Guy looks at phone with girl">
+          </a>
+          <a href="/items/<%= item.id %>">
             <div class="name"><%= item.name %></div>
           </a>
           <div class="price">$<%= '%.2f' % (item.unit_price.to_f/100) %></div>
