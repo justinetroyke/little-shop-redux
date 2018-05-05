@@ -3,7 +3,7 @@
 } */
 
 form {
-  text-align: center;
+  text-align: left;
 }
 
 button {
@@ -21,7 +21,7 @@ button {
 
 .box {
   width: 700px;
-  height: 755px;
+  height: 655px;
   padding: 10px 35px 10px 35px;
   border: 5px solid black;
   margin: 10px auto auto auto;
@@ -29,9 +29,15 @@ button {
 
 input {
   font-size: 25px;
+  width: 100%;
 }
 
 p {
-  font-size: 45px;
+  font-size: 35px;
   line-height: .2;
+}
+
+select {
+  width: 100%;
+  height: 45px;
 }

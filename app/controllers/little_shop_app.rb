@@ -25,9 +25,8 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/merchants' do
-    number = Merchant.last.id + 1
-    params['merchant']['merchant_id'] = number
-    merchant = Merchant.create(params['merchant'])
+    params[:merchant] =
+      merchant = Merchant.create(params['merchant'])
 
     redirect "/merchants/#{merchant.id}"
   end
@@ -58,13 +57,45 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/new' do
+    @merchants = Merchant.all
+
     erb :"item/create_an_item"
   end
 
   post '/items/new' do
-    Item.create(params[:item])
+    item = Item.create(params[:item])
 
-    redirect '/'
+    redirect "/items/#{item.id}"
+  end
+
+  get '/items/dashboard' do
+    erb :"item/dashboard"
+  end
+
+  get '/items/:id/edit' do
+    @merchants = Merchant.all
+    @item = Item.find(params[:id])
+    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+
+    erb :"item/update_an_item"
+  end
+
+  post '/items/:id/edit' do
+    Item.update(params[:id], params[:item])
+    redirect "/items/#{params[:id]}"
+  end
+
+  delete '/items/delete/:id' do
+    Item.delete(params[:id])
+
+    redirect '/items'
+  end
+
+  get '/items/:id' do
+    @item = Item.find(params[:id])
+    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+
+    erb :"item/individual_item"
   end
 
   get '/merchants-dashboard' do

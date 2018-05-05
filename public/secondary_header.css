@@ -1,0 +1,47 @@
+.secondary-header h1 {
+  font-size: 55px;
+}
+
+.secondary-header {
+  border-right: 25px black;
+  padding-top: 50px;
+  padding-bottom: 45px;
+  background: rgb(110, 107, 106);
+  height: 100px;
+}
+
+.secondary-header a {
+  position: absolute;
+  left: 15;
+  font-size: 25px;
+}
+
+.secondary-header h1, button {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.secondary-header button {
+  padding: 10px 25px;
+  font-size: 20px;
+}
+
+#delete-button {
+  margin-right: 255px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.item-name {
+  width: 750px;
+  height: 100px;
+  font-size: 1vw;
+  margin: -45px auto auto auto;
+  text-align: center;
+}
