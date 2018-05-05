@@ -39,7 +39,7 @@ RSpec.describe 'visitors' do
 
     click_link("Cancel")
 
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/merchants")
   end
 
   it 'should take me to individual merchant page when i click update merchant' do
@@ -47,7 +47,7 @@ RSpec.describe 'visitors' do
     visit("/merchants/#{merchant.id}/edit")
 
     click_button("Update Merchant")
-    
+
 
     expect(current_path).to eq("/merchants/#{merchant.id}")
   end

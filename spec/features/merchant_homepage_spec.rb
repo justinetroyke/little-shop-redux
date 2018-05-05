@@ -32,7 +32,7 @@ RSpec.describe 'visitors' do
   # end
 
   it 'should take me to invoices home page when i click invoices ' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_link('Invoices')
@@ -41,7 +41,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should take me to home page when i click Little shop ' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_link('Little Shop')
@@ -50,7 +50,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should take me to merchant/new page when i click create new merchant ' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_button('Create A New Merchant')
@@ -68,7 +68,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should take me to home page when i  click delete' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_button('Delete')
@@ -77,7 +77,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should take me to dashboard page when i  click dashboard' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_link('Dashboard')

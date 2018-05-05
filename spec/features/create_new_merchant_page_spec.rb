@@ -24,7 +24,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should redirect me to invoices home page when i click invoices' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
 
     visit('/merchants/new')
 
@@ -43,7 +43,7 @@ RSpec.describe 'visitors' do
   # end
 
   it 'should redirect me to home page when i click little shop' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
 
     visit('/merchants/new')
 
@@ -59,11 +59,11 @@ RSpec.describe 'visitors' do
 
     click_link("Cancel")
 
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/merchants")
   end
 
   it 'should redirect me to individual merchant page when i click create merchant' do
-    merchant = Merchant.create(name: 'walmart')
+    Merchant.create(name: 'walmart')
 
     visit('/merchants/new')
     fill_in("merchant[name]", :with => 'Manoj')
