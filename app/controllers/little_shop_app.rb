@@ -63,9 +63,9 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/items/new' do
-    Item.create(params[:item])
+    item = Item.create(params[:item])
 
-    redirect '/'
+    redirect "/items/#{item.id}"
   end
 
   get '/items/dashboard' do

@@ -17,7 +17,7 @@ RSpec.describe 'User' do
       fill_in('item[description]', with: 'Chewable')
       fill_in('item[unit_price]', with: 100)
       fill_in('item[image]', with: 'http://jerky')
-      click_button('Create New Item')
+      click_button('Edit Item')
 
       expect(page).to have_content('Jerky')
       expect(page).to_not have_content('New thing')
@@ -41,6 +41,26 @@ RSpec.describe 'User' do
       expect(page).to_not have_content('Newer Thing')
       expect(page).to have_content('Nope')
       expect(page).to have_content('Go Away')
+    end
+  end
+
+  describe 'Creating an item' do
+    it 'can create an item' do
+      Merchant.create(name: "New Merchant", merchant_id: 5, created_at: "2002-11-18 00:00:00", updated_at: "2007-10-09 00:00:00")
+
+      visit('/')
+      click_button('Items')
+      click_button('Create a New Item')
+
+      fill_in('item[name]', with: 'Jerky')
+      fill_in('item[description]', with: 'Chewable')
+      fill_in('item[unit_price]', with: 100)
+      fill_in('item[image]', with: 'http://jerky')
+      click_button('Create New Item')
+
+      expect(current_path).to eq('/items/1')
+      expect(page).to have_content('Jerky')
+      expect(page).to_not have_content('New thing')
     end
   end
 end
