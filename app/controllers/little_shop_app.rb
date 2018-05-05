@@ -68,6 +68,10 @@ class LittleShopApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/items/dashboard' do
+    erb :"item/dashboard"
+  end
+
   get '/items/:id' do
     @item = Item.find(params[:id])
     @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
