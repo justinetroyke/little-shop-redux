@@ -15,3 +15,19 @@
   <h1> Invoices </h1>
   <center>
 </div>
+
+
+<% @invoices.each do |invoice| %>
+<center>
+  <form action="/invoices/<%=invoice.id%>/delete" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <div style="width:1000px;height:25px;border:3px solid #000;">
+      <a href='/invoices/<%=invoice.id%>' style="float:left;"><%= invoice.id%></a>
+      <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
+      <button style="float:right;" class='editbutton' href='/invoices/<%=invoice.id%>/edit'> Edit</button>
+    </div>
+  </form>
+</center>
+
+<br>
+<% end %>

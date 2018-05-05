@@ -7,7 +7,7 @@ RSpec.describe 'User visits index homepage' do
 
   it 'should see index of invoices' do
     invoice = Invoice.create(
-      id: 1,
+      id: 2134,
       customer_id: 1,
       merchant_id: 300,
       status: 'pending',
@@ -16,7 +16,7 @@ RSpec.describe 'User visits index homepage' do
     )
     visit('/invoices')
 
-    expect(page).to have_content(invoice)
+    expect(page).to have_content(invoice.id)
   end
 
   it 'should have little shop header with buttons on merchants and items' do
