@@ -47,6 +47,7 @@ RSpec.describe 'visitors' do
     visit("/merchants/#{merchant.id}/edit")
 
     click_button("Update Merchant")
+    
 
     expect(current_path).to eq("/merchants/#{merchant.id}")
   end

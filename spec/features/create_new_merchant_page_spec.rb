@@ -62,13 +62,13 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq("/")
   end
 
-  it 'should redirect me to home page when i click cancel' do
+  it 'should redirect me to individual merchant page when i click create merchant' do
     merchant = Merchant.create(name: 'walmart')
 
     visit('/merchants/new')
-    fill_in "entername", with: "manoj"
+    fill_in("merchant[name]", :with => 'Manoj')
     click_button("Create Merchant")
 
-    expect(current_path).to eq("/merchants/")
+    expect(current_path).to eq("/merchants/2")
   end
 end
