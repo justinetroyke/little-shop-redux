@@ -7,6 +7,7 @@ div {
   color: blue;
 }
 
+
 div.second-box {
   width: relative;
   height: 100px;
@@ -37,9 +38,26 @@ div.merchant-middle-header {
 .editbutton {
   background-color: yellow;
 }
+.dashboard-nav {
+  width: relative;
+  height: 40px;
+  border: 3px  solid #000;
+  border-bottom: 1.5px;
+}
 
 .edit-rectangle {
+  width: relative;
+  height: 120px;
+  border:3px solid #000;"
   background-color: rgb(110, 107, 106);
+  border-bottom: 1.5px;
+}
+
+.middle-box-dash {
+  width: relative;
+  height: 120px;
+  border: 3px solid #000;
+  border-bottom: 1.5px;
 }
 
 .update-merchant {
@@ -144,4 +162,17 @@ div.merchant-middle-header {
 
 .top-revenue {
   float: left;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  border: 2px solid black;
+}
+
+.merchant-div {
+  margin: 10px 50px 10px 40px;
+  width: 25%;
+  height: 38%;
+  border: 3px solid #000;
 }

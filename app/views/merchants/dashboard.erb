@@ -1,10 +1,10 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
     <link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
+    <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
   </head>
   <body>
-    <div style="width:relative;height:40px;border:3px solid #000;">
+    <div class="dashboard-nav">
       <h3>
         <a class="name" href='/'>Little Shop</a>
         <a href='/invoices'>Invoices</a>
@@ -13,28 +13,28 @@
       </h3>
     </div>
 
-    <div class="edit-rectangle" style="width:relative;height:120px;border:3px solid #000;">
+    <div class="edit-rectangle">
       <h1>Merchants Dashboard</h1>
     </div>
-    <br>
-    <div style="width:relative;height:120px;border:3px solid #000;">
+    <div class="middle-box-dash">
       <h1 class="top-merchant" >Merchants with Most Items:</h1>
       <h1 class ="top-revenue">Merchant with Highest Price Item:</h1>
     </div>
     <br>
-    <% @merchants.each do |merchant| %>
-      <div class="mer-dashboard" style="width:25%;height:45%;border:3px solid #000;">
-
-        <h2 class="ind-merchant"><%=merchant.name%></h2>
-        <h3>Item Count:</h3>
-        <h4>23</h4>
-        <h3>Avg Item Price:</h3>
-        <h4>$ 100.02</h4>
-        <h3>Total Cost of Items:</h3>
-        <h4>$ 100.00</h4>
-      </div>
+    <div class="flex-container">
+      <% @merchants.each do |merchant| %>
+        <div class="merchant-div">
+          <h2 class="ind-merchant"><%=merchant.name%></h2>
+          <h3>Item Count:</h3>
+          <h4>23</h4>
+          <h3>Avg Item Price:</h3>
+          <h4>$ 100.02</h4>
+          <h3>Total Cost of Items:</h3>
+          <h4>$ 100.00</h4>
+        </div>
+      <% end %>
+    </div>
 
       <br>
-    <% end %>
   </body>
 </html>
