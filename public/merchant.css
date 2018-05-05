@@ -117,3 +117,27 @@ div.merchant-middle-header {
   padding: 5px 20px;
   background-color: red;
 }
+
+.edit-button-in-merchant-index {
+  background-color: yellow;
+  margin-top: -15px;
+  float: right;
+}
+
+.ind-merchant {
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.mer-dashboard h3 {
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.mer-dashboard h4 {
+  padding-left: 10px;
+}
+
+.top-merchant h1 {
+  float: right;
+}

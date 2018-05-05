@@ -66,4 +66,13 @@ class LittleShopApp < Sinatra::Base
 
     redirect '/'
   end
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+
+    erb :"merchants/dashboard"
+  end
+  not_found do
+    404
+  end
 end
