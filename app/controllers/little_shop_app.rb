@@ -103,7 +103,8 @@ class LittleShopApp < Sinatra::Base
 
     erb :"merchants/dashboard"
   end
-  not_found do
-    404
+
+  get '/items-dashboard' do
+    erb :"item/dashboard"
   end
 end

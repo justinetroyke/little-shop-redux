@@ -3,7 +3,7 @@
 }
 
 .secondary-header {
-  border-right: 25px black;
+  border: solid 25px black;
   padding-top: 50px;
   padding-bottom: 45px;
   background: rgb(110, 107, 106);
