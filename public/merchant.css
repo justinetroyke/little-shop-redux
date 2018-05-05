@@ -138,6 +138,10 @@ div.merchant-middle-header {
   padding-left: 10px;
 }
 
-.top-merchant h1 {
+.top-merchant {
   float: right;
+}
+
+.top-revenue {
+  float: left;
 }

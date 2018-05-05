@@ -1,34 +1,40 @@
-<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
-<link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
-<div class="individualmerchant">
-  <h3>
-    <a class="name" href='/'>Little Shop</a>
-    <a href='/invoices'>Invoices</a>
-    <a href='/items'>Items</a>
-    <a href='/merchants'>Merchants</a>
-  </h3>
-</div>
+<html>
+  <head>
+    <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
+    <link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
+  </head>
+  <body>
+    <div class="individualmerchant">
+      <h3>
+        <a class="name" href='/'>Little Shop</a>
+        <a href='/invoices'>Invoices</a>
+        <a href='/items'>Items</a>
+        <a href='/merchants'>Merchants</a>
+      </h3>
+    </div>
 
-<div class="second-box-individual-merchant">
-  <center>
-    <h1>
-      <%= @merchant.name %>
-    </h1>
-    <button class='individualedit' onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button">Edit</button>
-    <form action="/merchants/<%=@merchant.id%>/delete" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <button class='individualdelete' type="submit">Delete</button>
-    </form>
-  </center>
-</div>
+    <div class="second-box-individual-merchant">
+      <center>
+        <h1>
+          <%= @merchant.name %>
+        </h1>
+        <button class='individualedit' onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button">Edit</button>
+        <form action="/merchants/<%=@merchant.id%>/delete" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class='individualdelete' type="submit">Delete</button>
+        </form>
+      </center>
+    </div>
 
-<ul>
-  <li>Merchant name =
-    <%= @merchant.name %></li>
-  <li>Merchant id =
-    <%= @merchant.merchant_id %></li>
-  <li>Merchant created_at =
-    <%= @merchant.created_at %></li>
-  <li>Merchant updated_at =
-    <%= @merchant.updated_at %></li>
-</ul>
+    <ul>
+      <li>Merchant name =
+        <%= @merchant.name %></li>
+      <li>Merchant id =
+        <%= @merchant.merchant_id %></li>
+      <li>Merchant created_at =
+        <%= @merchant.created_at %></li>
+      <li>Merchant updated_at =
+        <%= @merchant.updated_at %></li>
+    </ul>
+  </body>
+</html>
