@@ -21,9 +21,19 @@
 
 <br>
 
-<% @merchants.each do |merchant| %>
+<% @merchants.each_with_index do |merchant, index| %>
 <center>
+<% if index.odd? %>
   <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <div style="background-color: grey;width:1000px;height:25px;border:3px solid #000;">
+      <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+      <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
+      <button style="float:right;" class='editbutton' href='/merchants/<%=merchant.id%>/edit'> Edit</button>
+    </div>
+  </form>
+<% else %>
+    <form action="/merchants/<%=merchant.id%>/delete" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <div style="width:1000px;height:25px;border:3px solid #000;">
       <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
@@ -31,7 +41,10 @@
       <button style="float:right;" class='editbutton' href='/merchants/<%=merchant.id%>/edit'> Edit</button>
     </div>
   </form>
+  <% end %>
+
 </center>
 
 <br>
-<% end %>
+
+<% end%>

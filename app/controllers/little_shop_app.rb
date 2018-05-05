@@ -72,7 +72,7 @@ class LittleShopApp < Sinatra::Base
     erb :"item/dashboard"
   end
 
-  get '/items/update/:id' do
+  get '/items/:id/edit' do
     @merchants = Merchant.all
     @item = Item.find(params[:id])
     @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
@@ -80,9 +80,8 @@ class LittleShopApp < Sinatra::Base
     erb :"item/update_an_item"
   end
 
-  post '/items/update' do
+  post '/items/:id/edit' do
     Item.update(params[:id], params[:item])
-
     redirect "/items/#{params[:id]}"
   end
 

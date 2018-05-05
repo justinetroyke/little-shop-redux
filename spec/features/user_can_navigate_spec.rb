@@ -179,7 +179,7 @@ RSpec.describe 'User' do
       first('#individual-item').click_on('Newer Thing')
       click_button('Edit')
 
-      expect(current_path).to eq('/items/update/1')
+      expect(current_path).to eq('/items/1/edit')
     end
 
     it 'should redirect user to index page after delete' do

@@ -21,7 +21,7 @@
       <h1>Items</h1>
     </div>
     <div class="box">
-      <form class="new-item" action="/items/update?id=<%= @item.id %>" method="POST">
+      <form class="new-item" action="/items/<%= @item.id %>/edit" method="POST">
         <p>Merchant</p>
         <select name="item[merchant_id]">
           <% @merchants.each do |merchant| %>

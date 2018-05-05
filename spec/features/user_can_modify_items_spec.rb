@@ -11,7 +11,7 @@ RSpec.describe 'User' do
       first('#individual-item').click_on('Newer Thing')
       click_button('Edit')
 
-      expect(current_path).to eq('/items/update/1')
+      expect(current_path).to eq('/items/1/edit')
 
       fill_in('item[name]', with: 'Jerky')
       fill_in('item[description]', with: 'Chewable')
