@@ -32,16 +32,23 @@ RSpec.describe 'User visits index homepage' do
     visit('/invoices')
 
     expect(page).to have_button('Merchants')
+    expect(page).to have_button('Items')
   end
 end
 
-# context 'they click on edit invoice button' do
-#     it 'they are redirected to /invoice/:id/edit' do
-#       invoice = Invoice.create!(merchant_id: 1, status: 'shipping')
-#       Merchant.create!(id: 1, name: 'Boaty McBoatface')
-#       visit '/invoices'
-#       click_link 'Edit'
-#
-#       expect(current_path).to eq "/invoices/#{invoice[:id]}/edit"
-#     end
-#   end
+RSpec.describe 'User clicking on invoice id to invoice page' do
+  it 'should see invoice status and ID' do
+    invoice = Invoice.create(
+      id: 2134,
+      customer_id: 1,
+      merchant_id: 300,
+      status: 'pending',
+      created_at: '2009-02-07',
+      updated_at: '2014-03-15'
+    )
+    merchant = Merchant.create(id:234, name: 'Strawberry')
+    visit "/invoices/#{invoice.id}"
+
+    expect(page).to have_content merchant.name.to_s
+  end
+end
