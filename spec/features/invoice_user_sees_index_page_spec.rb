@@ -14,16 +14,24 @@ RSpec.describe 'User visits index homepage' do
       created_at: '2009-02-07',
       updated_at: '2014-03-15'
     )
+    invoice_2 = Invoice.create(
+      id: 4567,
+      customer_id: 1,
+      merchant_id: 300,
+      status: 'pending',
+      created_at: '2009-02-07',
+      updated_at: '2014-03-15'
+    )
     visit('/invoices')
 
     expect(page).to have_content(invoice.id)
+    expect(page).to have_content(invoice_2.id)
   end
 
   it 'should have little shop header with buttons on merchants and items' do
     visit('/invoices')
-    click_button('Merchants')
 
-    expect(current_path).to eq '/merchants'
+    expect(page).to have_button('Merchants')
   end
 end
 
