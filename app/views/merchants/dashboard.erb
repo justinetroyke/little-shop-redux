@@ -16,12 +16,13 @@
     <div class="edit-rectangle">
       <h1>Merchants Dashboard</h1>
     </div>
+    <div class="flex-container">
     <div class="middle-box-dash">
       <h1 class="top-merchant" >Merchants with Most Items:</h1>
       <h1 class ="top-revenue">Merchant with Highest Price Item:</h1>
     </div>
-    <br>
-    <div class="flex-container">
+
+    <div class="merchant-container-div">
       <% @merchants.each do |merchant| %>
         <div class="merchant-div">
           <h2 class="ind-merchant"><%=merchant.name%></h2>

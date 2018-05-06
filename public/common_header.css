@@ -20,7 +20,7 @@ header {
   border: 3px solid black;
 }
 
-header a {
+h3 a {
   appearance: button;
   float: right;
   text-decoration: none;
@@ -30,4 +30,7 @@ header a {
 header a.homepage-link {
   float: left;
   padding-left: 10px;
+}
+.name {
+  float: left
 }
