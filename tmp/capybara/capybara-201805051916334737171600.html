@@ -16,28 +16,27 @@
     <div class="second-box-individual-merchant">
       <center>
         <h1>
-          <%= @merchant.name %>
+          walmart
         </h1>
-        <button class='individualedit' onclick="location.href='/merchants/<%=@merchant.id%>/edit'" type="button">Edit</button>
-        <form action="/merchants/<%=@merchant.id%>/delete" method="POST">
+        <button class='individualedit' onclick="location.href='/merchants/1/edit'" type="button">Edit</button>
+        <form action="/merchants/1/delete" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <button class='individualdelete' type="submit">Delete</button>
         </form>
       </center>
     </div>
 
-    <div class="flex-container">
-      <div class="merchant-container-div">
-        <% @items.each do |item| %>
-          <div class="merchant-dive" >
-            <a href="/items/#{<%=item.item_id%>}"class="ind-merchant"><h2><%=item.name%></h2></a>
-            <div class="item-price-container" >
-              <h3>$<%=item.unit_price%></h3>
-            </div>
-            </div>
-        <% end %>
-      </div>
-    </div>
+    <ul>
+      <li>Merchant name =
+        walmart</li>
+      <li>Merchant id =
+        </li>
+      <li>Merchant created_at =
+        2018-05-06 01:16:13 UTC</li>
+      <li>Merchant updated_at =
+        2018-05-06 01:16:13 UTC</li>
+    </ul>
 
+    <li> Items = </li>
   </body>
 </html>
