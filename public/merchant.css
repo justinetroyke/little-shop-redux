@@ -1,23 +1,73 @@
 h1 {
-    color: red;
-    text-align: center;
-
-  }
-h3 {
   color: black;
-  bottom: 20px;
+  text-align: center;
 }
 
 div {
   color: blue;
 }
 
+
+div.second-box {
+  width: relative;
+  height: 100px;
+  border: 3px solid #000;
+  background-color: rgb(110, 107, 106);
+}
+
+div.merchant-middle-header {
+  width: relative;
+  height: 140px;
+  border: 3px solid #000;
+  background-color: rgb(110, 107, 106);
+}
+
+.dashboard {
+  float: left;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  text-decoration: underline;
+}
+
+.creater-button {
+  padding: 10px 25px;
+  margin-left: 105px;
+  border: 2px solid black;
+}
+
 .editbutton {
   background-color: yellow;
 }
+.dashboard-nav {
+  width: relative;
+  height: 40px;
+  border: 3px  solid #000;
+  border-bottom: 1.5px;
+}
 
-.items {
+.edit-rectangle {
+  width: relative;
+  height: 120px;
+  border:3px solid #000;"
+  border-bottom: 1.5px;
+  background-color: gray
+}
 
+.middle-box-dash {
+  width: 100%;
+  background-color: gray;
+  padding-right: 100px;
+  width: relative;
+  height: 120px;
+  border: 3px solid red;
+}
+
+.update-merchant {
+  border: 10003px;
+}
+
+.new-name {
+  padding-left: 10px;
 }
 
 .deletebutton {
@@ -25,17 +75,153 @@ div {
 }
 
 .create-button {
-  text-align: center;
-  border: 7px solid green ;
-  background-color: pink;
+  background-color: green;
+  float: right;
+  padding: 10px 20px;
 }
+
 .submit-button {
   text-align: center;
-  border: 7px solid green ;
+  border: 7px solid green;
   background-color: pink;
 }
+
 .cancel-button {
   text-align: center;
-  border: 7px solid red ;
+  border: 7px solid red;
   background-color: pink;
+}
+
+.entername {
+  margin-top: 50px;
+  padding: 10px 0px 10px 20px;
+  width: 100%;
+
+}
+
+.name1 {
+  float: left;
+  color: black;
+  padding-left: 10px;
+}
+
+.cancelcreate {
+  float: left;
+  padding: 10px 20px;
+  background-color: red;
+  text-decoration: none;
+  color: #fff;
+
+}
+
+.individualmerchant {
+  width: relative;
+  height: 40px;
+  border: 3px solid #000;
+}
+
+.second-box-individual-merchant {
+  background-color: rgb(110, 107, 106);
+  width: relative;
+  height: 120px;
+  border: 3px solid #000;
+}
+
+.individualedit {
+  padding: 5px 20px;
+  margin-right: 100px;
+  background-color: yellow;
+}
+
+.individualdelete {
+  margin-right: -190px;
+  margin-top: -25px;
+  padding: 5px 20px;
+  background-color: red;
+}
+
+.edit-button-in-merchant-index {
+  background-color: yellow;
+  margin-top: -15px;
+  float: right;
+}
+
+.ind-merchant {
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.mer-dashboard h3 {
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.mer-dashboard h4 {
+  padding-left: 10px;
+}
+
+.top-merchant {
+  float: right;
+}
+
+.top-revenue {
+  float: left;
+  padding-left: 20;
+}
+
+.flex-container {
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  border: 3px solid black;
+  border-top: 3px solid black;
+}
+
+.merchant-div {
+  background-color: gainsboro;
+  margin: 20px 0;
+  width: 30%;
+  border: 3px solid #000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.merchant-dive {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUjG3VOdtGh7QHhsrISMLGnaj6a9YaxGUxIuNIVTSUzvtBVFS");
+  background-color: gainsboro;
+  margin: 20px 0;
+  width: 30%;
+  border: 3px solid #000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.merchant-container-div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+}
+.new-merchant-button-container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.new-merchant {
+  padding: 10px;
+}
+
+.create-merchant-container {
+  width: 50%;
+  height: 50%;
+  border: 3px solid #000;
+  padding: 10;
+}
+
+
+.item-price-container {
+  background-color: white;
+  width: relative;
+  height: 60px;
+  border: 3px solid #000;
 }

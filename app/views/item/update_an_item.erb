@@ -21,24 +21,28 @@
       <h1>Items</h1>
     </div>
     <div class="box">
-      <form class="new-item" action="/items/new" method="POST">
+      <form class="new-item" action="/items/<%= @item.id %>/edit" method="POST">
         <p>Merchant</p>
         <select name="item[merchant_id]">
           <% @merchants.each do |merchant| %>
-            <option value="<%= merchant.merchant_id %>"><%= merchant.name %></option>
+            <% if merchant == @merchant %>
+              <option selected="selected" value="<%= merchant.merchant_id %>"><%= merchant.name %></option>
+            <% else %>
+              <option value="<%= merchant.merchant_id %>"><%= merchant.name %></option>
+            <% end %>
           <% end %>
         </select>
         <p>Title</p>
-        <input type="text" name="item[name]" placeholder="Name">
+        <input type="text" name="item[name]" placeholder="<%= @item.name %>">
         <p>Description</p>
-        <input type="text" name="item[description]" placeholder="Description">
+        <input type="text" name="item[description]" placeholder="<%= @item.description %>">
         <p>Price</p>
-        <input type="number" name="item[unit_price]" placeholder="Price">
+        <input type="number" name="item[unit_price]" placeholder="<%= '%.2f' % (@item.unit_price.to_f/100) %>">
         <p>Image URL</p>
-        <input type="text" name="item[image]" placeholder="Image URL">
+        <input type="text" name="item[image]" placeholder="<%= @item.image %>">
         <br>
         <br>
-        <button type="submit" id="create-button">Create New Item</button>
+        <button type="submit" id="create-button">Edit Item</button>
       </form>
       <form>
         <button formaction="/items" type="submit" id="cancel-button">Cancel</button>

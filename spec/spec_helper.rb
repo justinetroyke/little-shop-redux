@@ -4,11 +4,12 @@ require 'capybara/dsl'
 require 'bundler'
 Bundler.require(:default, :test)
 
+require File.expand_path('../../config/environment', __FILE__)
 
-require File.expand_path("../../config/environment", __FILE__)
+Capybara.app = LittleShopApp
+Capybara.save_path = 'tmp/capybara'
 
 DatabaseCleaner.strategy = :truncation
-Capybara.app = LittleShopApp
 
 RSpec.configure do |c|
   c.before(:all) do
@@ -17,5 +18,6 @@ RSpec.configure do |c|
   c.after(:each) do
     DatabaseCleaner.clean
   end
+
   c.include Capybara::DSL
 end

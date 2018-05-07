@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item</title>
+    <link rel="stylesheet" href="/common_header.css" title="text/css">
+    <link rel="stylesheet" href="/secondary_header.css" title="text/css">
+    <link rel="stylesheet" href="/individual_item.css" title="text/css">
+  </head>
+  <body>
+    <header>
+      <h3>
+        <form>
+          <a href='/' class="homepage-link">Little Shop</a>
+          <a href="/invoices">Invoices</a>
+          <a href="/items">Items</a>
+          <a href="/merchants">Merchants</a>
+        </form>
+      </h3>
+    </header>
+    <div class="secondary-header">
+      <a href="/items-dashboard">Dashboard</a>
+      <div class="item-name">
+        <h2><%= @item.name %></h2>
+      </div>
+      <div class="flex-container">
+        <div>
+          <form action="/items/delete/<%= @item.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button id="delete-button" type="submit">Delete</button>
+          </form>
+        </div>
+        <div>
+          <form>
+            <button formaction="/items/<%= @item.id %>/edit" type="submit">Edit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <h2 id="item-name">
+        <a href="/merchants/<%= @merchant.id %>">
+          <%= @merchant.name %>
+        </a>
+      </h2>
+      <img src="<%= @item.image %>" alt="Guy looking at phone with girl">
+    </div>
+    <div class="column">
+      <h5><%= @item.name %></h5>
+      <h5>$<%= '%.2f' % (@item.unit_price.to_f/100) %></h5>
+      <p><%= @item.description %></p>
+    </body>
+  </html>
