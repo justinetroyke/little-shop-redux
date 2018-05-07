@@ -92,7 +92,7 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id/edit' do
     @merchants = Merchant.all
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/update_an_item"
   end
@@ -110,7 +110,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/:id' do
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/individual_item"
   end
