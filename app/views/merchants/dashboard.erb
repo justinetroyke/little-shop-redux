@@ -1,17 +1,10 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/common_header.css" title="CSS" type="text/css"/>
-    <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css"/>
+    <%=erb(:'partials/static_links')%>
   </head>
+
   <body>
-    <div class="dashboard-nav">
-      <h3>
-        <a class="name" href='/'>Little Shop</a>
-        <a href='/invoices'>Invoices</a>
-        <a href='/items'>Items</a>
-        <a href='/merchants'>Merchants</a>
-      </h3>
-    </div>
+    <%=erb(:'partials/nav_bar')  %>
 
     <div class="edit-rectangle">
       <h1>Merchants Dashboard</h1>
