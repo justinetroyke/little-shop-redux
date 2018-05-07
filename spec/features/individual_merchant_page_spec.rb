@@ -2,6 +2,7 @@ RSpec.describe 'visitors' do
 
   it 'should show me navigation bar ' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     expect(page).to have_content("#{merchant.name}")
@@ -9,6 +10,7 @@ RSpec.describe 'visitors' do
 
   it 'should take me to merchant home page when i click marchants ' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Merchants')
@@ -18,6 +20,7 @@ RSpec.describe 'visitors' do
 
   # it 'should take me to items home page when i click items ' do
   #   merchant = Merchant.create(name: 'walmart')
+  # merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
   #   visit('/merchants')
   #
   #   click_link('Items')
@@ -27,6 +30,7 @@ RSpec.describe 'visitors' do
 
   it 'should take me to invoices home page when i click invoices ' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Invoices')
@@ -36,6 +40,7 @@ RSpec.describe 'visitors' do
 
   it 'should take me to home page when i click Little shop ' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Little Shop')
@@ -45,6 +50,7 @@ RSpec.describe 'visitors' do
 
   it 'should take me to edit page when i click  edit' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_button('Edit')
@@ -54,6 +60,7 @@ RSpec.describe 'visitors' do
 
   it 'should take me to home page when i  click delete' do
     merchant = Merchant.create(name: 'walmart')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_button('Delete')
@@ -63,6 +70,7 @@ RSpec.describe 'visitors' do
 
   it 'should show me attributes of  merchant' do
     merchant = Merchant.create(name: 'walmart' )
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
 
@@ -72,5 +80,10 @@ RSpec.describe 'visitors' do
     expect(page).to have_content("id")
   end
 
-
+  it 'should show me items of a  merchant' do
+    merchant = Merchant.create(name: 'Nepal')
+    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
+    visit("/merchants/#{merchant.id}")
+    save_and_open_page
+  end
 end
