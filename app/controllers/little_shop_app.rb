@@ -63,6 +63,15 @@ class LittleShopApp < Sinatra::Base
     erb :"item/index"
   end
 
+  get '/items-dashboard' do
+    @total_count_of_items = Item.all.length
+    @average_price_per_item = Item.average_price
+    @most_recently_created_item = Item.most_recently_created
+    @oldest_item = Item.oldest_item
+
+    erb :"item/dashboard"
+  end
+
   get '/items/new' do
     @merchants = Merchant.all
 
@@ -76,6 +85,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/dashboard' do
+
     erb :"item/dashboard"
   end
 
@@ -107,10 +117,8 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants-dashboard' do
     @merchants = Merchant.all
-
+    
     erb :"merchants/dashboard"
   end
-  not_found do
-    404
-  end
+  
 end

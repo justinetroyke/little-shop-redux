@@ -24,7 +24,7 @@ items = CSV.open('./data/items.csv',
                  headers: true,
                  header_converters: :symbol)
 items.each do |item|
-  Item.create(item_id:      item[:id],
+  Item.create(id:           item[:id],
               name:         item[:name],
               description:  item[:description],
               unit_price:   item[:unit_price],
@@ -38,7 +38,7 @@ merchants = CSV.open('./data/merchants.csv',
                      headers: true,
                      header_converters: :symbol)
 merchants.each do |merchant|
-  Merchant.create(id:  merchant[:id],
+  Merchant.create(id:           merchant[:id],
                   name:         merchant[:name],
                   created_at:   merchant[:created_at],
                   image:        'https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg',
