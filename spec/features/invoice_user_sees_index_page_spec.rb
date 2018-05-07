@@ -68,5 +68,6 @@ RSpec.describe 'User clicking on invoice id to invoice page' do
 
       expect(page).to have_content merchant.name.to_s
       expect(page).to have_content invoice.status
+    end
   end
 end
