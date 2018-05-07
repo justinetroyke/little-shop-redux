@@ -1,4 +1,3 @@
-
 require './spec/spec_helper'
 RSpec.describe Merchant do
   describe 'validations' do

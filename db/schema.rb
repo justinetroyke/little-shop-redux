@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 2018_05_07_161613) do
 
   create_table "merchants", force: :cascade do |t|
     t.text "name"
+    t.integer "merchant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
 end
