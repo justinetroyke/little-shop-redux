@@ -1,4 +1,4 @@
-RSpec.describe 'User visits index homepage' do
+RSpec.describe 'User updates invoice' do
   it 'should see invoice header' do
     visit '/invoices'
 
