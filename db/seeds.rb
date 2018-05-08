@@ -49,7 +49,7 @@ invoice_items = CSV.open('./data/invoice_items.csv',
                          headers: true,
                          header_converters: :symbol)
 invoice_items.each do |invoice_item|
-  InvoiceItem.create(item_id:    invoice_item[:item_id],
+  InvoiceItem.create( item_id:    invoice_item[:item_id],
                       invoice_id: invoice_item[:invoice_id],
                       quantity:   invoice_item[:quantity],
                       unit_price: invoice_item[:unit_price],
