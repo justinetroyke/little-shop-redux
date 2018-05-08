@@ -84,6 +84,5 @@ RSpec.describe 'visitors' do
     merchant = Merchant.create(name: 'Nepal')
     merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
-    save_and_open_page
   end
 end

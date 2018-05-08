@@ -51,23 +51,24 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/index'
   end
 
+  get '/invoices/:id/edit' do
+    @invoice = Invoice.find(params['id'])
+    @merchants = Merchant.all
+
+    erb :"invoices/edit"
+  end
+
+  delete '/invoices/delete/:id' do
+    Invoice.destroy(params[:id])
+
+    redirect '/invoices'
+  end
+
   get'/invoices/:id' do
     @invoice = Invoice.find(params['id'])
     # @invoice_items = @invoice.invoice_items
 
     erb :'invoices/individual_invoice'
-  end
-
-  get '/invoices/:id/edit' do
-    @invoice = Invoice.find(params['id'])
-
-    erb :"invoices/edit"
-  end
-
-  delete '/invoices/:id' do
-    Invoice.destroy(params[:id])
-
-    redirect '/invoices'
   end
 
   get '/items' do

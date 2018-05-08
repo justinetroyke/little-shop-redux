@@ -26,3 +26,4 @@ RSpec.describe 'User' do
     it 'should take the user to create a new item' do
     end
   end
+end

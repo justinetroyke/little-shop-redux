@@ -1,13 +1,20 @@
-<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
+<link rel="stylesheet" href="/common_header.css" title="text/css">
+<link rel="stylesheet" href="/secondary_header.css" title="text/css">
+<link rel="stylesheet" href="/update_invoice.css" title="text/css">
 
-<div style="width:relative;height:40px;border:3px solid #000;">
-  <h3>
-    <a href='/'>Little Shop</a>
-    <button style="float:right;" class = "invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
-    <button style="float:right;" class ="items" onclick="location.href='/items'" type="button"> Items</button>
-    <button style="float:right;" class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
-  </h3>
-</div>
+<header>
+     <h3>
+       <form>
+         <a href='/' class="homepage-link">Little Shop</a>
+         <a href="/invoices">Invoices</a>
+         <a href="/items">Items</a>
+         <a href="/merchants">Merchants</a>
+       </form>
+     </h3>
+   </header>
+   <div class="secondary-header">
+     <h1>Invoice</h1>
+   </div>
 
 <div style="width:relative;height:100px;border:3px solid #000;">
   <center>
@@ -15,12 +22,38 @@
   </center>
 </div>
 
-<section class="submission-box">
-    <form action="/invoices/<%= @invoice.id %>" method="post">
-      <input type="hidden" name="_method" value="PUT" />
-      Merchant Id:<input type='integer' name='invoice[merchant_id]' value="<%= @invoice.merchant_id %>" readonly/><br/>
-      Customer Id: <input type='integer' name='invoice[customer_id]' value="<%= @invoice.customer_id %>"/><br/>
-      Status: <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
-      <input id="submit" type='submit'/>
+<div class="box">
+  <div class="inner-box">
+    <form class="update-invoice" action="/invoices/<%= @invoice.id %>/edit" method="POST">
+      <p>Invoice</p>
+      <select name="invoice[id]">
+        <% @merchants.each do |merchant| %>
+          <% if merchant == @invoice.merchant %>
+            <option selected="selected" value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% else %>
+            <option value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+      <select name="invoice[id]">
+        <% if @invoice.status == :returned %>
+          <option value="<%= @invoice.status %>"><%= "Pending" %></option>
+          <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
+          <option selected="selected" value="<%= @invoice.status %>"><%= "Returned"%></option>
+        <% elsif @invoice.status == :shipped %>
+          <option value="<%= @invoice.status %>"><%= "Pending" %></option>
+          <option selected="selected" value="<%= @invoice.status %>"><%= "Shipped" %></option>
+          <option value="<%= @invoice.status %>"><%= "Returned"%></option>
+          <% else %>
+          <option selected="selected" value="<%= @invoice.status %>"><%= "Pending" %></option>
+          <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
+          <option value="<%= @invoice.status %>"><%= "Returned"%></option>
+        <% end %>
+      </select>
+      <button type="submit" id="create-button">Update Invoice</button>
     </form>
-</section>
+    <form>
+      <button formaction="/invoices" type="submit" id="cancel-button">Cancel</button>
+    </form>
+  </div>
+</div>
