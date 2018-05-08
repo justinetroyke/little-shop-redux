@@ -24,5 +24,5 @@ RSpec.describe 'User' do
 
   describe 'Navigation from item index' do
     it 'should take the user to create a new item' do
-
+    end
 end
