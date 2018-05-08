@@ -4,8 +4,8 @@ RSpec.describe Merchant do
     describe 'required fields' do
       it 'should be invalid if missing a name' do
         merchant = Merchant.create(id: 1,
-                                  created_at: '2002-11-18 00:00:00',
-                                  updated_at: '2007-10-09 00:00:00')
+                                   created_at: '2002-11-18 00:00:00',
+                                   updated_at: '2007-10-09 00:00:00')
         expect(merchant).to_not be_valid
       end
     end
@@ -15,8 +15,8 @@ RSpec.describe Merchant do
     describe '.create' do
       it 'should create a new merchant' do
         m1 = Merchant.create(name: 'fake merchant',
-                        created_at: '2002-11-18 00:00:00',
-                        updated_at: '2007-10-09 00:00:00')
+                             created_at: '2002-11-18 00:00:00',
+                             updated_at: '2007-10-09 00:00:00')
 
         expect(Merchant.all.length).to eq(1)
         expect(Merchant.all.first.created_at).to eq('2002-11-18 00:00:00.000000000 +0000')
@@ -31,7 +31,7 @@ RSpec.describe Merchant do
     it 'updates an existing merchant' do
       m1 = Merchant.create(name: 'walmart')
       update_parameters = { id: 1,
-                            name: 'fake merchant'}
+                            name: 'fake merchant' }
       Merchant.update(m1.id, update_parameters)
 
       expect(Merchant.find(m1.id).name).to eq('fake merchant')
@@ -42,7 +42,7 @@ RSpec.describe Merchant do
   describe '.delete' do
     it 'deletes an existing merchant' do
       m1 = Merchant.create(id: 1,
-                      name: 'Fake Merchant')
+                           name: 'Fake Merchant')
       Merchant.create(id: 2,
                       name: 'Merchant')
 
@@ -57,18 +57,18 @@ RSpec.describe Merchant do
   describe 'merchant info' do
     it 'shows total count, average price and total cost for a merchant items' do
       m1 = Merchant.create(id: 1,
-                          name: 'Fake Merchant')
+                           name: 'Fake Merchant')
 
       i1 = m1.items.create(image: 'picture',
                            name: 'fake item',
-                          description: 'this is fake',
-                          unit_price: '200')
+                           description: 'this is fake',
+                           unit_price: '200')
       i2 = m1.items.create(image: 'picture',
                            name: 'item',
-                          description: 'this is fake item',
-                          unit_price: '300')
+                           description: 'this is fake item',
+                           unit_price: '300')
 
-      average_item_price = (i1.unit_price + i2.unit_price)/2
+      average_item_price = (i1.unit_price + i2.unit_price) / 2
       total_item_cost = i1.unit_price + i2.unit_price
 
       expect(Merchant.merchant_info[0].name).to eq(m1.name)

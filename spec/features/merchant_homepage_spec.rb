@@ -1,20 +1,20 @@
 RSpec.describe 'visitors' do
-  it 'should show me merchants header ' do
-    merchant = Merchant.create(name: 'walmart')
+  it 'should  see merchants header ' do
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     expect(page).to have_content('Merchants')
   end
 
-  it 'should show all the merchants ' do
-    merchant = Merchant.create(name: 'walmart')
+  it 'should see all the merchants ' do
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     expect(page).to have_content('walmart')
   end
 
-  it 'should take me to merchant home page when i click marchants ' do
-    merchant = Merchant.create(name: 'walmart')
+  it 'should be taken to merchant home page when they click marchants ' do
+    Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_link('Merchants')
@@ -22,16 +22,16 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq('/merchants')
   end
 
-  # it 'should take me to items home page when i click items ' do
-  #   merchant = Merchant.create(name: 'walmart')
-  #   visit('/merchants')
-  #
-  #   click_link('Items')
-  #
-  #   expect(current_path).to eq('/items')
-  # end
+  it 'should be taken to items home page when they click items ' do
+    Merchant.create(name: 'walmart')
+    visit('/merchants')
 
-  it 'should take me to invoices home page when i click invoices ' do
+    click_link('Items')
+
+    expect(current_path).to eq('/items')
+  end
+
+  it 'should be taken to invoices home page when they click invoices ' do
     Merchant.create(name: 'walmart')
     visit('/merchants')
 
@@ -40,7 +40,7 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq('/invoices')
   end
 
-  it 'should take me to home page when i click Little shop ' do
+  it 'should be taken to home page when they click Little shop ' do
     Merchant.create(name: 'walmart')
     visit('/merchants')
 
@@ -49,7 +49,7 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq('/')
   end
 
-  it 'should take me to merchant/new page when i click create new merchant ' do
+  it 'should be taken merchant/new page when they click create new merchant ' do
     Merchant.create(name: 'walmart')
     visit('/merchants')
 
@@ -58,7 +58,7 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq('/merchants/new')
   end
 
-  it 'should take me to edit page when i  edit' do
+  it 'should be taken to  edit page when they click edit for a merchant' do
     merchant = Merchant.create(name: 'walmart')
     visit('/merchants')
 
@@ -67,26 +67,30 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq("/merchants/#{merchant.id}/edit")
   end
 
-  it 'should take me to home page when i  click delete' do
+  it 'should be taken to mercahnts home page when they click delete' do
     Merchant.create(name: 'walmart')
     visit('/merchants')
 
     click_button('Delete')
 
-    expect(current_path).to eq("/merchants")
+    expect(current_path).to eq('/merchants')
   end
 
-  it 'should take me to dashboard page when i  click dashboard' do
+  it 'should be taken to  dashboard page when they click dashboard' do
     merchant = Merchant.create(name: 'walmart')
-    item = Item.create!(image: "manjnkj", merchant_id: merchant.id, name: 'pancake', description: 'tates good', unit_price: 100)
+    Item.create!(image: 'manjnkj',
+                 merchant_id: merchant.id,
+                 name: 'pancake',
+                 description: 'tates good',
+                 unit_price: 100)
     visit('/merchants')
 
     click_link('Dashboard')
 
-    expect(current_path).to eq("/merchants-dashboard")
+    expect(current_path).to eq('/merchants-dashboard')
   end
 
-  it 'should take me to individual merchant page when i  click merchant name' do
+  it 'should be taken to  individual merchant page when they click on merchant name' do
     merchant = Merchant.create(name: 'walmart')
     visit('/merchants')
 

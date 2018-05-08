@@ -64,6 +64,7 @@ RSpec.describe 'visitors' do
   end
 
   it 'should be redirected to individual merchant page when they click create merchant' do
+    Merchant.create(name: 'walmart')
     visit('/merchants/new')
     fill_in('merchant[name]', :with => 'walmart')
     click_button('Create Merchant')
@@ -72,5 +73,13 @@ RSpec.describe 'visitors' do
 
     expect(current_path).to eq("/merchants/#{merchant.id}")
     expect(page).to have_content(merchant.name)
+  end
+
+  it 'should be redirected to same page when they click create merchant with out filling in the merchant name' do
+    visit('/merchants/new')
+
+    click_button('Create Merchant')
+
+    expect(current_path).to eq("/merchants/new")
   end
 end
