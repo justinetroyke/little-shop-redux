@@ -24,7 +24,7 @@
     <form class="update-invoice" action="/invoices/<%= @invoice.id %>/edit" method="POST">
       <p>Invoice</p>
       <p-2>Merchant</p>
-      <select name="invoice[id]">
+      <select name="merchants">
         <% @merchants.each do |merchant| %>
           <% if merchant == @invoice.merchant %>
             <option selected="selected" value="<%= merchant.id %>"><%= merchant.name %></option>
@@ -34,19 +34,19 @@
         <% end %>
       </select>
       <p-2>Status</p>
-      <select name="invoice[id]">
+      <select name="status">
         <% if @invoice.status == :returned %>
-          <option value="<%= @invoice.status %>"><%= "Pending" %></option>
-          <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Returned"%></option>
+          <option value="pending"><%= "Pending" %></option>
+          <option value="shipped"><%= "Shipped" %></option>
+          <option selected="selected" value="returned"><%= "Returned"%></option>
         <% elsif @invoice.status == :shipped %>
-          <option value="<%= @invoice.status %>"><%= "Pending" %></option>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Shipped" %></option>
-          <option value="<%= @invoice.status %>"><%= "Returned"%></option>
+          <option value="pending"><%= "Pending" %></option>
+          <option selected="selected" value="shipped"><%= "Shipped" %></option>
+          <option value="returned"><%= "Returned"%></option>
           <% else %>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Pending" %></option>
-          <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
-          <option value="<%= @invoice.status %>"><%= "Returned"%></option>
+          <option selected="selected" value="pending"><%= "Pending" %></option>
+          <option value="shipped"><%= "Shipped" %></option>
+          <option value="returned"><%= "Returned"%></option>
         <% end %>
       </select>
       <button type="submit" id="create-button">Update Invoice</button>
