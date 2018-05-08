@@ -5,6 +5,36 @@
     <link rel="stylesheet" href="/common_header.css" title="text/css">
     <link rel="stylesheet" href="/secondary_header.css" title="text/css">
     <link rel="stylesheet" href="/dashboard.css" title="text/css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Item Count', 'Price'],
+          <% @items.each do |item| %>
+            <% if (item.unit_price.to_f/100) > 25000 %>
+              <% next %>
+            <% else %>
+              <%= [item.merchant.items.count, ((item.unit_price.to_f/100))] %>,
+            <% end %>
+          <% end %>
+        ]);
+
+        var options = {
+          title: 'Item Count and Price',
+          hAxis: {title: 'Item Count', minValue: 0, maxValue: 30},
+          vAxis: {title: 'Price', minValue: 0, maxValue: 25000},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -47,6 +77,7 @@
         </div>
       </div>
     </div>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
 
