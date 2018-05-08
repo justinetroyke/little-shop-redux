@@ -59,8 +59,22 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/index'
   end
 
-  get '/invoices/:id' do
+  get '/invoices/:id/edit' do
     @invoice = Invoice.find(params['id'])
+    @merchants = Merchant.all
+
+    erb :"invoices/edit"
+  end
+
+  delete '/invoices/delete/:id' do
+    Invoice.destroy(params[:id])
+
+    redirect '/invoices'
+  end
+
+  get'/invoices/:id' do
+    @invoice = Invoice.find(params['id'])
+    # @invoice_items = @invoice.invoice_items
 
     erb :'invoices/individual_invoice'
   end
@@ -76,6 +90,8 @@ class LittleShopApp < Sinatra::Base
     @average_price_per_item = Item.average_price
     @most_recently_created_item = Item.most_recently_created
     @oldest_item = Item.oldest_item
+    @items = Item.all
+    @merchants = Merchant.all
 
     erb :"item/dashboard"
   end
@@ -90,10 +106,6 @@ class LittleShopApp < Sinatra::Base
     item = Item.create(params[:item])
 
     redirect "/items/#{item.id}"
-  end
-
-  get '/items/dashboard' do
-    erb :"item/dashboard"
   end
 
   get '/items/:id/edit' do

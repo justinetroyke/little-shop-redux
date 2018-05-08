@@ -5,6 +5,7 @@ form {
 button {
   padding: 5px 15px;
   font-size: 20px;
+  margin-top: 20px;
 }
 
 #cancel-button {
@@ -13,11 +14,20 @@ button {
 
 #create-button {
   float: right;
+  margin-top: 35px;
 }
 
 .box {
   width: 700px;
   height: 655px;
+  padding: 10px 35px 10px 35px;
+  border: 5px solid black;
+  margin: 10px auto auto auto;
+}
+
+.inner-box {
+  width: 622px;
+  height: 250px;
   padding: 10px 35px 10px 35px;
   border: 5px solid black;
   margin: 10px auto auto auto;

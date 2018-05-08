@@ -24,6 +24,17 @@ RSpec.describe 'User' do
 
   describe 'Navigation from item index' do
     it 'should take the user to create a new item' do
+      visit('/')
+      click_button('Items')
+      click_button('Create a New Item')
+
+      expect(current_path).to eq('/items/new')
+    end
+
+    it 'should take the user to the dashboard' do
+      visit('/')
+      click_button('Items')
+      click_link('Dashboard')
 
       expect(current_path).to eq('/items-dashboard')
     end

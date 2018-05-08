@@ -12,6 +12,12 @@ div {
   color: blue;
 }
 
+/* .submission-box {
+  display: flex;
+  background-color: blue;
+  justify-content: space-around;
+} */
+
 .editbutton {
   background-color: yellow;
 }
