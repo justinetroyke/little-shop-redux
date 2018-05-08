@@ -64,24 +64,16 @@ class LittleShopApp < Sinatra::Base
     erb :"invoices/edit"
   end
 
-  get '/items' do
-    @items = Item.all
-
-    erb :"item/index"
-  end
-
-  get '/invoices/:id' do
-    :locals => {
-          :invoice => Invoice.find(params[:id])
-        }
-
-    erb :'invoices/individual_invoice'
-  end
-
   delete '/invoices/:id' do
     Invoice.destroy(params[:id])
 
     redirect '/invoices'
+  end
+
+  get '/items' do
+    @items = Item.all
+
+    erb :"item/index"
   end
 
   get '/items-dashboard' do
