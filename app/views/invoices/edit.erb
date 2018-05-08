@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/common_header.css" title="text/css">
+<link rel="stylesheet" href="/secondary_header.css" title="text/css">
+<link rel="stylesheet" href="/update_invoice.css" title="text/css">
+
+<header>
+     <h3>
+       <form>
+         <a href='/' class="homepage-link">Little Shop</a>
+         <a href="/invoices">Invoices</a>
+         <a href="/items">Items</a>
+         <a href="/merchants">Merchants</a>
+       </form>
+     </h3>
+   </header>
+
+<div style="width:relative;height:100px;border:3px solid #000;">
+  <center>
+    <h1> <%= "Invoice: #{@invoice.id} - #{@invoice.status}" %> </h1>
+  </center>
+</div>
+
+<div class="box">
+  <div class="inner-box">
+    <form class="update-invoice" action="/invoices/<%= @invoice.id %>/edit" method="POST">
+      <p>Invoice</p>
+      <p-2>Merchant</p>
+      <select name="merchants">
+        <% @merchants.each do |merchant| %>
+          <% if merchant == @invoice.merchant %>
+            <option selected="selected" value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% else %>
+            <option value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+      <p-2>Status</p>
+      <select name="status">
+        <% if @invoice.status == :returned %>
+          <option value="pending"><%= "Pending" %></option>
+          <option value="shipped"><%= "Shipped" %></option>
+          <option selected="selected" value="returned"><%= "Returned"%></option>
+        <% elsif @invoice.status == :shipped %>
+          <option value="pending"><%= "Pending" %></option>
+          <option selected="selected" value="shipped"><%= "Shipped" %></option>
+          <option value="returned"><%= "Returned"%></option>
+          <% else %>
+          <option selected="selected" value="pending"><%= "Pending" %></option>
+          <option value="shipped"><%= "Shipped" %></option>
+          <option value="returned"><%= "Returned"%></option>
+        <% end %>
+      </select>
+      <button type="submit" id="create-button">Update Invoice</button>
+    </form>
+    <form>
+      <button formaction="/invoices" type="submit" id="cancel-button">Cancel</button>
+    </form>
+  </div>
+</div>

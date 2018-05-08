@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <%=erb(:'partials/static_links')%>
+  </head>
+
+  <body>
+    <%=erb(:'partials/nav_bar')  %>
+    <div class="second-box">
+      <h1>
+        Create New Merchant
+      </h1>
+    </div>
+
+    <div style="height:100%;border:3px solid #000;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <center>
+        <div style="width:50%;border:3px solid #000;">
+          <h3 class="name1">
+            Name
+          </h3>
+          <p><%=@message%></p>
+          <form class="new-merchant" action="/merchants" method="post">
+            <input class="entername" type="text" name="merchant[name]" placeholder="Enter Name For Merchant">
+            <div class="new-merchant-button-container">
+            <a class="cancelcreate" href="/merchants">Cancel</a>
+            <input class="create-button" type="submit" value="Create Merchant"></div>
+          </form>
+        </div>
+      </center>
+    </div>
+  </body>
+</html>

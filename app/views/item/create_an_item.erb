@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New Item</title>
+    <link rel="stylesheet" href="/common_header.css" title="text/css">
+    <link rel="stylesheet" href="/secondary_header.css" title="text/css">
+    <link rel="stylesheet" href="/create_item.css" title="text/css">
+  </head>
+  <body>
+    <header>
+      <h3>
+        <form>
+          <a href='/' class="homepage-link">Little Shop</a>
+          <a href="/invoices">Invoices</a>
+          <a href="/items">Items</a>
+          <a href="/merchants">Merchants</a>
+        </form>
+      </h3>
+    </header>
+    <div class="secondary-header">
+      <h1>Items</h1>
+    </div>
+    <div class="box">
+      <form class="new-item" action="/items/new" method="POST">
+        <p>Merchant</p>
+        <select name="item[merchant_id]">
+          <% @merchants.each do |merchant| %>
+            <option value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% end %>
+        </select>
+        <p>Title</p>
+        <input type="text" name="item[name]" placeholder="Name">
+        <p>Description</p>
+        <input type="text" name="item[description]" placeholder="Description">
+        <p>Price</p>
+        <input type="number" name="item[unit_price]" placeholder="Price">
+        <p>Image URL</p>
+        <input type="text" name="item[image]" placeholder="Image URL">
+        <br>
+        <br>
+        <button type="submit" id="create-button">Create New Item</button>
+      </form>
+      <form>
+        <button formaction="/items" type="submit" id="cancel-button">Cancel</button>
+      </form>
+    </div>
+  </body>
+</html>

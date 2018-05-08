@@ -3,6 +3,13 @@ class LittleShopApp < Sinatra::Base
     erb :"homepage/index"
   end
 
+  get '/merchants-dashboard' do
+    @merchant_info = Merchant.merchant_info
+    @highest_price_item = Merchant.merchant_with_highest_price_item
+    @merchant_with_most_item = @merchant_info.sort_by(&:item_count).reverse.first
+    erb :"merchants/dashboard"
+  end
+
   get '/merchants/new' do
     erb :'merchants/create'
   end
@@ -10,7 +17,6 @@ class LittleShopApp < Sinatra::Base
   get '/merchants/:id' do
     @merchant = Merchant.find(params['id'])
     @items = @merchant.items
-
     erb :"merchants/individual_merchant"
   end
 
@@ -26,10 +32,12 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/merchants' do
-    params[:merchant] =
-      merchant = Merchant.create(params['merchant'])
-
-    redirect "/merchants/#{merchant.id}"
+    merchant = Merchant.new(params['merchant'])
+    if merchant.save
+      redirect "/merchants/#{merchant.id}"
+    else
+      redirect '/merchants/new'
+    end
   end
 
   post '/merchant/:id' do
@@ -51,8 +59,30 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/index'
   end
 
-  get'/invoices/:id' do
-    @invoice = Invoice.find(params['id'])
+  get '/invoices/:id/edit' do
+    @invoice = Invoice.find(params[:id])
+    @merchants = Merchant.all
+
+    erb :"invoices/edit"
+  end
+
+  post '/invoices/:id/edit' do
+    invoice = Invoice.find(params[:id])
+    invoice.update(params)
+
+    redirect "/invoices/#{params[:id]}"
+  end
+
+  delete '/invoices/delete/:id' do
+    Invoice.destroy(params[:id])
+    require 'pry'; binding.pry
+
+    redirect '/invoices'
+  end
+
+  get '/invoices/:id' do
+    @invoice = Invoice.find(params[:id])
+    # @invoice_items = @invoice.invoice_items
 
     erb :'invoices/individual_invoice'
   end
@@ -85,20 +115,18 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/items/new' do
-    item = Item.create(params[:item])
-
-    redirect "/items/#{item.id}"
-  end
-
-  get '/items/dashboard' do
-
-    erb :"item/dashboard"
+    item = Item.new(params[:item])
+    if item.save
+      redirect "/items/#{item.id}"
+    else
+      redirect "/items/new"
+    end
   end
 
   get '/items/:id/edit' do
     @merchants = Merchant.all
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/update_an_item"
   end
@@ -116,15 +144,8 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/:id' do
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/individual_item"
   end
-
-  get '/merchants-dashboard' do
-    @merchants = Merchant.all
-    
-    erb :"merchants/dashboard"
-  end
-  
 end

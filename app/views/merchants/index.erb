@@ -1,0 +1,38 @@
+
+<html>
+  <head>
+    <%=erb(:'partials/static_links')%>
+  </head>
+
+  <body>
+    <%=erb(:'partials/nav_bar')  %>
+    <div class="merchant-middle-header">
+      <a class="dashboard" href='/merchants-dashboard'>Dashboard</a>
+      <h1>Merchants</h1>
+      <center>
+        <form>
+          <button class="creater-button" formaction="/merchants/new" type="submit">Create A New Merchant</button>
+        </form>
+      </center>
+    </div>
+
+    <div class="flex-container">
+      <% @merchants.each do |merchant| %>
+        <center>
+          <div style="width:1000px;margin:10px;height:25px;border:3px solid #000;">
+            <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+              <button style="float:right;" type="submit" class='deletebutton'>
+                Delete</button>
+            </form>
+            <a href='/merchants/<%=merchant.id%>/edit'><button class='edit-button-in-merchant-index'>
+              Edit</button></a>
+          </div>
+        </center>
+
+        <br>
+      <% end %>
+    </div>
+  </body>
+</html>

@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>All Items</title>
-    <link rel="stylesheet" href="item_main.css" title="text/css">
-    <link rel="stylesheet" href="common_header.css" title="text/css">
-  </head>
-  <body>
-    <header>
-      <h3>
-        <a href='/'>Little Shop</a>
-        <button class ="invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
-        <button class ="items" onclick="location.href='/items'" type="button"> Items</button>
-        <button class="invoices" onclick="location.href='/merchants'" type="button"> Merchants</button>
-      </h3>
-    </header>
+<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
+
+<div style="width:relative;height:40px;border:3px solid #000;">
+  <h3>
+    <a href='/'>Little Shop</a>
+    <button style="float:right;" class = "invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
+    <button style="float:right;" class ="items" onclick="location.href='/items'" type="button"> Items</button>
+    <button style="float:right;" class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
+  </h3>
+</div>
     <div style="width:relative;height:100px;border:3px solid #000;">
       <center>
       <h1> Invoices </h1>
@@ -22,16 +18,16 @@
 
 
     <% @invoices.each do |invoice| %>
-    <center>
-      <form action="/invoices/<%=invoice.id%>/delete" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <div style="width:1000px;height:25px;border:3px solid #000;">
-          <a href='/invoices/<%=invoice.id%>' style="float:left;"><%= invoice.id%></a>
-          <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
-          <button style="float:right;" class='editbutton' href='/invoices/<%=invoice.id%>/edit'> Edit</button>
+      <center>
+      <div style="width:60%;height:25px;border:3px solid #000;margin-top:15px;">
+        <form action="/invoices/<%=invoice.id%>/delete" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+            <a style="float:left;margin-left:25px;" href='/invoices/<%=invoice.id%>' style="float:left;"><%= invoice.id%></a>
+            <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
+        </form>
+        <form action ="/invoices/<%= invoice.id %>/edit">
+            <button style="float:right;" type="submit" class='editbutton' href='/invoices/<%=invoice.id%>/edit'> Edit</button>
+        </form>
         </div>
-      </form>
-    </center>
-
-    <br>
+      </center>
     <% end %>
