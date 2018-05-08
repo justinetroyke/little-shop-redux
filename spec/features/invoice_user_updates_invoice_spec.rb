@@ -53,8 +53,8 @@ RSpec.describe 'User updates invoice' do
       updated_at: '2014-03-15'
     )
     update_parameters = {status: 'shipped'}
-    Invoice.update(invoice.id, status)
+    Invoice.update(invoice.id, update_parameters)
 
-    expect(invoice.find.status).to eq('shipped')
+    expect(invoice.status).to eq('shipped')
   end
 end
