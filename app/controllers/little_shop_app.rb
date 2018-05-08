@@ -6,7 +6,13 @@ class LittleShopApp < Sinatra::Base
   get '/merchants-dashboard' do
     @merchant_info = Merchant.merchant_info
     @highest_price_item = Merchant.merchant_with_highest_price_item
-    @merchant_with_most_item = @merchant_info.sort_by(&:item_count).reverse.first
+    merchants_sorted_by_item_count = @merchant_info.sort_by(&:item_count).reverse
+    top_item_count = merchants_sorted_by_item_count.first.item_count
+    @merchant_with_most_item = []
+    merchants_sorted_by_item_count.each do |merchant|
+      @merchant_with_most_item << merchant if merchant.item_count == top_item_count
+    end
+
     erb :"merchants/dashboard"
   end
 

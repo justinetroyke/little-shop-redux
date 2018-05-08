@@ -20,7 +20,7 @@ class Item < ActiveRecord::Base
   def self.most_recently_created
     Item.all.sort_by(&:updated_at).reverse.first
   end
-  
+
   def self.oldest_item
     Item.all.sort_by(&:created_at).first
   end
