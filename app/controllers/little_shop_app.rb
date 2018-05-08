@@ -3,6 +3,13 @@ class LittleShopApp < Sinatra::Base
     erb :"homepage/index"
   end
 
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    @highest_price_item = Merchant.merchant_with_highest_price_item
+    @merchant_with_most_item = Merchant.merchant_with_most_item
+    erb :"merchants/dashboard"
+  end
+
   get '/merchants/new' do
     erb :'merchants/create'
   end
@@ -92,7 +99,7 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id/edit' do
     @merchants = Merchant.all
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/update_an_item"
   end
@@ -110,15 +117,10 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/:id' do
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/individual_item"
   end
 
-  get '/merchants-dashboard' do
-    @merchants = Merchant.all
-    
-    erb :"merchants/dashboard"
-  end
-  
+
 end
