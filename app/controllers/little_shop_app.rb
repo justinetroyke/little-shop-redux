@@ -53,14 +53,35 @@ class LittleShopApp < Sinatra::Base
 
   get'/invoices/:id' do
     @invoice = Invoice.find(params['id'])
+    # @invoice_items = @invoice.invoice_items
 
     erb :'invoices/individual_invoice'
+  end
+
+  get '/invoices/:id/edit' do
+    @invoice = Invoice.find(params['id'])
+
+    erb :"invoices/edit"
   end
 
   get '/items' do
     @items = Item.all
 
     erb :"item/index"
+  end
+
+  get '/invoices/:id' do
+    :locals => {
+          :invoice => Invoice.find(params[:id])
+        }
+
+    erb :'invoices/individual_invoice'
+  end
+
+  delete '/invoices/:id' do
+    Invoice.destroy(params[:id])
+
+    redirect '/invoices'
   end
 
   get '/items-dashboard' do
@@ -92,7 +113,7 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id/edit' do
     @merchants = Merchant.all
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/update_an_item"
   end
@@ -110,15 +131,15 @@ class LittleShopApp < Sinatra::Base
 
   get '/items/:id' do
     @item = Item.find(params[:id])
-    @merchant = Merchant.find_by(merchant_id: @item.merchant_id)
+    @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/individual_item"
   end
 
   get '/merchants-dashboard' do
     @merchants = Merchant.all
-    
+
     erb :"merchants/dashboard"
   end
-  
+
 end
