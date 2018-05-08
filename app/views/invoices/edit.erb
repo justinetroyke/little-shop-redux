@@ -34,17 +34,17 @@
         <% end %>
       </select>
       <p-2>Status</p>
-      <select name="invoice[id]">
+      <select class='new' name="status">
         <% if @invoice.status == :returned %>
           <option value="<%= @invoice.status %>"><%= "Pending" %></option>
           <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Returned"%></option>
+          <option selected="Returned" value="<%= @invoice.status %>"><%= "Returned"%></option>
         <% elsif @invoice.status == :shipped %>
           <option value="<%= @invoice.status %>"><%= "Pending" %></option>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Shipped" %></option>
+          <option selected="Shipped" value="<%= @invoice.status %>"><%= "Shipped" %></option>
           <option value="<%= @invoice.status %>"><%= "Returned"%></option>
           <% else %>
-          <option selected="selected" value="<%= @invoice.status %>"><%= "Pending" %></option>
+          <option selected="Pending" value="<%= @invoice.status %>"><%= "Pending" %></option>
           <option value="<%= @invoice.status %>"><%= "Shipped" %></option>
           <option value="<%= @invoice.status %>"><%= "Returned"%></option>
         <% end %>
