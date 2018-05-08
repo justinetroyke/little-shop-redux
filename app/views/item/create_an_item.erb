@@ -25,7 +25,7 @@
         <p>Merchant</p>
         <select name="item[merchant_id]">
           <% @merchants.each do |merchant| %>
-            <option value="<%= merchant.merchant_id %>"><%= merchant.name %></option>
+            <option value="<%= merchant.id %>"><%= merchant.name %></option>
           <% end %>
         </select>
         <p>Title</p>
