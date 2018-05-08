@@ -25,7 +25,7 @@ RSpec.describe 'User' do
   describe 'Navigation from item index' do
     it 'should take the user to create a new item' do
 
-      expect(current_path).to eq('/items/dashboard')
+      expect(current_path).to eq('/items-dashboard')
     end
 
     it 'should take the user to the merchants index' do

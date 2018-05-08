@@ -22,19 +22,17 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq('/merchants')
   end
 
-  # it 'should take me to items home page when i click items ' do
-  #   merchant = Merchant.create(name: 'walmart')
-  # merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
-  #   visit('/merchants')
-  #
-  #   click_link('Items')
-  #
-  #   expect(current_path).to eq('/items')
-  # end
+  it 'should take me to items home page when i click items ' do
+    merchant = Merchant.create(name: 'walmart')
+    visit('/merchants')
+
+    click_link('Items')
+
+    expect(current_path).to eq('/items')
+  end
 
   it 'should take me to invoices home page when i click invoices ' do
     merchant = Merchant.create(name: 'walmart')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Invoices')
@@ -44,7 +42,6 @@ RSpec.describe 'visitors' do
 
   it 'should take me to home page when i click Little shop ' do
     merchant = Merchant.create(name: 'walmart')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Little Shop')
@@ -54,7 +51,6 @@ RSpec.describe 'visitors' do
 
   it 'should take me to edit page when i click  edit' do
     merchant = Merchant.create(name: 'walmart')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_button('Edit')
@@ -72,9 +68,8 @@ RSpec.describe 'visitors' do
     expect(current_path).to eq("/merchants")
   end
 
-  it 'should show me attributes of  merchant' do
+  it 'should show me attributes of merchant' do
     merchant = Merchant.create(name: 'walmart' )
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
 
