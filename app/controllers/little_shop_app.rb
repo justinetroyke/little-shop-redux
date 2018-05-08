@@ -68,8 +68,6 @@ class LittleShopApp < Sinatra::Base
     @average_price_per_item = Item.average_price
     @most_recently_created_item = Item.most_recently_created
     @oldest_item = Item.oldest_item
-    @items = Item.all
-    @merchants = Merchant.all
 
     erb :"item/dashboard"
   end
@@ -81,9 +79,12 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/items/new' do
-    item = Item.create(params[:item])
-
-    redirect "/items/#{item.id}"
+    item = Item.new(params[:item])
+    if item.save
+      redirect "/items/#{item.id}"
+    else
+      redirect "/items/new"
+    end
   end
 
   get '/items/:id/edit' do
