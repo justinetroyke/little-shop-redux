@@ -58,7 +58,7 @@ class LittleShopApp < Sinatra::Base
     erb :"invoices/edit"
   end
 
-  post '/items/:id/edit' do
+  post '/invoices/:id/edit' do
     Invoice.update(params[:id], params[:invoice])
 
     redirect "/invoices/#{params[:id]}"
@@ -66,6 +66,7 @@ class LittleShopApp < Sinatra::Base
 
   delete '/invoices/delete/:id' do
     Invoice.destroy(params[:id])
+    require 'pry'; binding.pry
 
     redirect '/invoices'
   end
