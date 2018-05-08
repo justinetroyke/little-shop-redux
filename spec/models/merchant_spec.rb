@@ -11,4 +11,16 @@ RSpec.describe Merchant do
       end
     end
   end
+
+  describe 'can calculate' do
+    it 'average item price' do
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(name: 'tool',
+                  merchant: merchant,
+                  description: 'this is cool',
+                  unit_price: 1200,
+                  image: "writemoartests")
+      expect(Merchant.avg_item_price).to eq(10)
+    end
+  end
 end

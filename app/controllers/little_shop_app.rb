@@ -1,6 +1,14 @@
 class LittleShopApp < Sinatra::Base
+
   get '/' do
     erb :"homepage/index"
+  end
+
+  get '/merchants-dashboard' do
+    @merchant_info = Merchant.merchant_info
+    @highest_price_item = Merchant.merchant_with_highest_price_item
+    @merchant_with_most_item = @merchant_info.sort_by(&:item_count).reverse.first
+    erb :"merchants/dashboard"
   end
 
   get '/merchants/new' do
@@ -110,11 +118,5 @@ class LittleShopApp < Sinatra::Base
     @merchant = Merchant.find_by(id: @item.merchant_id)
 
     erb :"item/individual_item"
-  end
-
-  get '/merchants-dashboard' do
-    @merchants = Merchant.all
-
-    erb :"merchants/dashboard"
   end
 end

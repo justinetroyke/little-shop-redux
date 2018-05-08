@@ -11,20 +11,22 @@
     </div>
     <div class="flex-container">
       <div class="middle-box-dash">
-        <h1 class="top-merchant" >Merchants with Most Items:</h1>
-        <h1 class ="top-revenue">Merchant with Highest Price Item:</h1>
+        <h1 class="top-merchant" >Merchants with Most Items: <br>
+        <a href="/merchants/<%=@highest_price_item.id%>"><%=@merchant_with_most_item.name%></h1></a>
+        <h1 class ="top-revenue">Merchant with Highest Price Item: <br>
+        <a href="/merchants/<%=@highest_price_item.id%>"><%=@highest_price_item.name%></h1></a>
       </div>
 
       <div class="merchant-container-div">
-        <% @merchants.each do |merchant| %>
+        <% @merchant_info.each do |merchant|%>
           <div class="merchant-div">
             <h2 class="ind-merchant"><%=merchant.name%></h2>
             <h3>Item Count:</h3>
-            <h4>23</h4>
+            <h4><%=merchant.item_count%></h4>
             <h3>Avg Item Price:</h3>
-            <h4>$ 100.02</h4>
+            <h4><%=merchant.avg_price%></h4>
             <h3>Total Cost of Items:</h3>
-            <h4>$ 100.00</h4>
+            <h4><%=merchant.total_cost%></h4>
           </div>
         <% end %>
       </div>
