@@ -36,7 +36,7 @@ RSpec.describe 'User' do
       click_button('Items')
       click_link('Dashboard')
 
-      expect(current_path).to eq('/items/dashboard')
+      expect(current_path).to eq('/items-dashboard')
     end
 
     it 'should take the user to the merchants index' do

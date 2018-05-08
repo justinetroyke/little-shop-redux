@@ -2,6 +2,11 @@ RSpec.describe 'visitors' do
   describe 'should see' do
     it 'merchants dashboard' do
       merchant = Merchant.create(name: 'walmart')
+      Item.create(image: 'manjnk',
+                  merchant_id: merchant.id,
+                  name: 'pancake',
+                  description: 'tates good',
+                  unit_price: 100)
       visit('/merchants-dashboard')
 
       expect(page).to have_content('Little Shop')
@@ -20,7 +25,12 @@ RSpec.describe 'visitors' do
 
   describe 'clicking LittleShop' do
     it 'should see home page' do
-      Merchant.create(name: 'walmart')
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
       visit('/merchants-dashboard')
 
       click_link('Little Shop')
@@ -30,7 +40,12 @@ RSpec.describe 'visitors' do
   end
   describe 'clicking Invoices' do
     it 'should see invoices home page' do
-      Merchant.create(name: 'walmart')
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
       visit('/merchants-dashboard')
 
       click_link('Invoices')
@@ -41,7 +56,12 @@ RSpec.describe 'visitors' do
 
   describe 'clicking Merchants' do
     it 'should see merchants home page' do
-      Merchant.create(name: 'walmart')
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
       visit('/merchants-dashboard')
 
       click_link('Merchants')
@@ -52,7 +72,12 @@ RSpec.describe 'visitors' do
 
   describe 'clicking Items' do
     it 'should see items home page' do
-      Merchant.create(name: 'walmart')
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
       visit('/merchants-dashboard')
 
       click_link('Items')
