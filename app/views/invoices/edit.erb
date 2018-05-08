@@ -23,6 +23,7 @@
   <div class="inner-box">
     <form class="update-invoice" action="/invoices/<%= @invoice.id %>/edit" method="POST">
       <p>Invoice</p>
+      <p-2>Merchant</p>
       <select name="invoice[id]">
         <% @merchants.each do |merchant| %>
           <% if merchant == @invoice.merchant %>
@@ -32,6 +33,7 @@
           <% end %>
         <% end %>
       </select>
+      <p-2>Status</p>
       <select name="invoice[id]">
         <% if @invoice.status == :returned %>
           <option value="<%= @invoice.status %>"><%= "Pending" %></option>
