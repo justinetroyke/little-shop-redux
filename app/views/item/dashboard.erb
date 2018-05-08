@@ -35,7 +35,7 @@
           <h5>Newest</h5>
           <h2>Item:
             <div id="item">
-              <a href='/items/<%= @most_recently_created_item.id %>'><%= @most_recently_created_item.name %></a>
+              <a href='/items/<%=@most_recently_created_item.id %>'><%= @most_recently_created_item.name %></a>
             </div>
           </h2>
           <h5>Oldest</h5>
@@ -50,4 +50,3 @@
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
-
