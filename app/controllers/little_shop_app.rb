@@ -1,6 +1,14 @@
 class LittleShopApp < Sinatra::Base
+
   get '/' do
     erb :"homepage/index"
+  end
+
+  get '/merchants-dashboard' do
+    @merchant_info = Merchant.merchant_info
+    @highest_price_item = Merchant.merchant_with_highest_price_item
+    @merchant_with_most_item = @merchant_info.sort_by(&:item_count).reverse.first
+    erb :"merchants/dashboard"
   end
 
   get '/merchants/new' do
@@ -51,6 +59,7 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/index'
   end
 
+
   get '/invoices/:id/edit' do
     @invoice = Invoice.find(params['id'])
     @merchants = Merchant.all
@@ -82,6 +91,8 @@ class LittleShopApp < Sinatra::Base
     @average_price_per_item = Item.average_price
     @most_recently_created_item = Item.most_recently_created
     @oldest_item = Item.oldest_item
+    @items = Item.all
+    @merchants = Merchant.all
 
     erb :"item/dashboard"
   end
@@ -96,11 +107,6 @@ class LittleShopApp < Sinatra::Base
     item = Item.create(params[:item])
 
     redirect "/items/#{item.id}"
-  end
-
-  get '/items/dashboard' do
-
-    erb :"item/dashboard"
   end
 
   get '/items/:id/edit' do
@@ -128,11 +134,4 @@ class LittleShopApp < Sinatra::Base
 
     erb :"item/individual_item"
   end
-
-  get '/merchants-dashboard' do
-    @merchants = Merchant.all
-
-    erb :"merchants/dashboard"
-  end
-
 end

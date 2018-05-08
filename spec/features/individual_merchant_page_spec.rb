@@ -75,9 +75,6 @@ RSpec.describe 'visitors' do
 
 
     expect(page).to have_content("#{merchant.name}")
-    expect(page).to have_content("created_at")
-    expect(page).to have_content("updated_at")
-    expect(page).to have_content("id")
   end
 
   it 'should show me items of a  merchant' do

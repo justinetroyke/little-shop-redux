@@ -44,3 +44,15 @@ merchants.each do |merchant|
                   image:        'https://icdn4.digitaltrends.com/image/tinder-dating-app-couple-laughing-smart-phone-embarass-bryson-and-kate-loling-at-u-720x720.jpg?ver=1.jpg',
                   updated_at:   merchant[:updated_at])
 end
+
+invoice_items = CSV.open('./data/invoice_items.csv',
+                         headers: true,
+                         header_converters: :symbol)
+invoice_items.each do |invoice_item|
+  InvoiceItem.create(item_id:    invoice_item[:item_id],
+                      invoice_id: invoice_item[:invoice_id],
+                      quantity:   invoice_item[:quantity],
+                      unit_price: invoice_item[:unit_price],
+                      updated_at: invoice_item[:updated_at],
+                      created_at: invoice_item[:created_at])
+  end
