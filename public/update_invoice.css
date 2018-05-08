@@ -45,6 +45,7 @@ p {
 p-2 {
   font-size: 15px;
   line-height: .2;
+  margin-top: 15px;
 }
 
 select {

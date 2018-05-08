@@ -28,23 +28,23 @@ RSpec.describe Invoice do
   end
 
   describe 'Class Methods' do
-    describe '.update' do
-      it 'updates an existing invoice' do
-        invoice = Invoice.create(
-          id: 1,
-          customer_id: 1,
-          merchant_id: 300,
-          status: 'pending',
-          created_at: '2009-02-07',
-          updated_at: '2014-03-15'
-        )
-        update_parameters = {customer_id: 728, status: 'shipped'}
-        Invoice.update(1, update_parameters)
+    # describe '.update' do
+    #   it 'updates an existing invoice' do
+    #     invoice = Invoice.create(
+    #       id: 1,
+    #       customer_id: 1,
+    #       merchant_id: 300,
+    #       status: 'pending',
+    #       created_at: '2009-02-07',
+    #       updated_at: '2014-03-15'
+    #     )
+    #     update_parameters = {customer_id: 728, status: 'shipped'}
+    #     Invoice.update(1, update_parameters)
 
-        expect(Invoice.find(1).customer_id).to eq(728)
-        expect(Invoice.find(1).status).to eq('shipped')
-      end
-    end
+    #     expect(Invoice.find(1).customer_id).to eq(728)
+    #     expect(Invoice.find(1).status).to eq('shipped')
+    #   end
+    # end
 
     describe '.delete' do
       it 'deletes an existing invoice' do
@@ -57,9 +57,9 @@ RSpec.describe Invoice do
           updated_at: '2014-03-15'
         )
         update_parameters = {customer_id: 728, status: 'shipped'}
-        Invoice.update(1, update_parameters)
+        Invoice.delete(1)
 
-        expect(Invoice.find(1).customer_id).to eq(728)
+        expect(Invoice.find(1).customer_id).to be_nil
         expect(Invoice.find(1).status).to eq('shipped')
       end
     end

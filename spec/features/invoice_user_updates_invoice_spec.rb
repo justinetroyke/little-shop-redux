@@ -44,7 +44,7 @@ RSpec.describe 'User updates invoice' do
   end
 
   it 'should update the invoice and show on invoice page' do
-    invoice = Invoice.create(
+    Invoice.create(
       id: 2134,
       customer_id: 1,
       merchant_id: 300,
@@ -52,9 +52,11 @@ RSpec.describe 'User updates invoice' do
       created_at: '2009-02-07',
       updated_at: '2014-03-15'
     )
-    select('Shipped', from: 'new')
+
+    select('Shipped', from: 'status')
     click_button('Update Invoice')
 
+    invoice = Invoice.find(2134)
     expect(invoice.status).to eq('shipped')
   end
 end
