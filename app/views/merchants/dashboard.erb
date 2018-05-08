@@ -18,15 +18,15 @@
       </div>
 
       <div class="merchant-container-div">
-        <% @merchants.each do |merchant|%>
+        <% @merchant_info.each do |merchant|%>
           <div class="merchant-div">
             <h2 class="ind-merchant"><%=merchant.name%></h2>
             <h3>Item Count:</h3>
-            <h4><%=merchant.items.count%></h4>
+            <h4><%=merchant.item_count%></h4>
             <h3>Avg Item Price:</h3>
-            <h4><%=merchant.avg_item_price("#{merchant.id}")%></h4>
+            <h4><%=merchant.avg_price%></h4>
             <h3>Total Cost of Items:</h3>
-            <h4><%=merchant.total_cost_of_items("#{merchant.id}")%></h4>
+            <h4><%=merchant.total_cost%></h4>
           </div>
         <% end %>
       </div>
