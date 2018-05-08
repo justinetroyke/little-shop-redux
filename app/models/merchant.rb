@@ -11,5 +11,4 @@ class Merchant < ActiveRecord::Base
   def self.merchant_info
     Merchant.joins(:items).select("merchants.*, avg(items.unit_price) as avg_price, sum(items.unit_price) as total_cost, count(items.id) as item_count").group("merchants.id")
   end
-
 end

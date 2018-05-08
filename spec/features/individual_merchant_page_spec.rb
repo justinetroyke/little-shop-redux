@@ -2,15 +2,19 @@ RSpec.describe 'visitors' do
 
   it 'should show me navigation bar ' do
     merchant = Merchant.create(name: 'walmart')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Invoices")
+    expect(page).to have_content("Items")
+    expect(page).to have_content("Little Shop")
     expect(page).to have_content("#{merchant.name}")
+    expect(page).to have_content("Edit")
+    expect(page).to have_content("Delete")
   end
 
   it 'should take me to merchant home page when i click marchants ' do
     merchant = Merchant.create(name: 'walmart')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
     visit("/merchants/#{merchant.id}")
 
     click_link('Merchants')
@@ -78,8 +82,13 @@ RSpec.describe 'visitors' do
   end
 
   it 'should show me items of a  merchant' do
-    merchant = Merchant.create(name: 'Nepal')
-    merchant.items.create(name: 'pancake', description: 'tates good', unit_price: 100)
+    merchant = Merchant.create(name: 'walmart')
+    item = Item.create!(image: "manjnkj", merchant_id: merchant.id, name: 'pancake', description: 'tates good', unit_price: 100)
+
+
     visit("/merchants/#{merchant.id}")
+
+    expect(page).to have_content(item.name)
+    expect(page).to have_content(item.unit_price)
   end
 end

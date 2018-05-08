@@ -77,7 +77,8 @@ RSpec.describe 'visitors' do
   end
 
   it 'should take me to dashboard page when i  click dashboard' do
-    Merchant.create(name: 'walmart')
+    merchant = Merchant.create(name: 'walmart')
+    item = Item.create!(image: "manjnkj", merchant_id: merchant.id, name: 'pancake', description: 'tates good', unit_price: 100)
     visit('/merchants')
 
     click_link('Dashboard')
