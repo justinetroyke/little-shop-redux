@@ -1,41 +1,41 @@
-<link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
+<html>
+  <head>
+    <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
+    <%=erb(:'partials/static_links')%>
+  </head>
 
-<div style="width:relative;height:40px;border:3px solid #000;">
-  <h3>
-    <a href='/'>Little Shop</a>
-    <button style="float:right;" class= "invoices" onclick="location.href='/invoices'" type="button"> Invoices</button>
-    <button style="float:right;" class="items" onclick="location.href='/items'" type="button"> Items</button>
-    <button style="float:right;" class="merchants" onclick="location.href='/merchants'" type="button"> Merchants</button>
-  </h3>
-</div>
+  <body>
+    <%=erb(:'partials/nav_bar')  %>
 
-<div style="width:relative;height:100px;border:3px solid #000;">
-  <center>
-    <h1> <%= "Invoice: #{@invoice.id} - #{@invoice.status}" %> </h1>
-    <button class= 'editbutton'onclick="location.href='/invoices/<%=@invoice.id%>/edit'" type="button"> Edit</button>
-    <button class= 'deletebutton'onclick="location.href='/invoices/<%=@invoice.id%>/delete'" type="button" formmethod="DELETE"> Delete</button>
-  </center>
-</div>
+    <div style="width:relative;height:100px;border:3px solid #000;">
+      <center>
+        <h1> <%= "Invoice: #{@invoice.id} - #{@invoice.status}" %> </h1>
+        <button class= 'editbutton'onclick="location.href='/invoices/<%=@invoice.id%>/edit'" type="button"> Edit</button>
+        <button class= 'deletebutton'onclick="location.href='/invoices/<%=@invoice.id%>/delete'" type="button" formmethod="DELETE"> Delete</button>
+      </center>
+    </div>
 
-<div style="width:relative;height:80px;border:2px solid #000;">
-  <center>
-    <h2><%= @invoice.merchant_id %></h2>
-  <center>
-</div>
+    <div style="width:relative;height:80px;border:2px solid #000;">
+      <center>
+        <h2><%= @invoice.merchant_id %></h2>
+      <center>
+    </div>
 
-<table border= "5" style="width:100%">
-  <tr>
-    <th>Item Id</th>
-    <th>Item Title</th>
-    <th>Quantity</th>
-    <th>Unit Price</th>
-  </tr>
-  <% @invoice_items.each do |invoice_item| %>
+    <table border= "5" style="width:100%">
       <tr>
-        <td><%= invoice_item.item.id %></td>
-        <td><%= invoice_item.item.name %></td>
-        <td><%= invoice_item.quantity %></td>
-        <td>$<%= '%.2f' % (invoice_item.item.unit_price.to_f/100) %></td>
+        <th>Item Id</th>
+        <th>Item Title</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
       </tr>
-  <% end %>
-</table>
+      <% @invoice_items.each do |invoice_item| %>
+          <tr>
+            <td><%= invoice_item.item.id %></td>
+            <td><%= invoice_item.item.name %></td>
+            <td><%= invoice_item.quantity %></td>
+            <td>$<%= '%.2f' % (invoice_item.item.unit_price.to_f/100) %></td>
+          </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
