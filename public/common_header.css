@@ -32,5 +32,6 @@ header a.homepage-link {
   padding-left: 10px;
 }
 .name {
+  margin-left: 10px;
   float: left
 }
