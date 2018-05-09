@@ -82,7 +82,6 @@ class LittleShopApp < Sinatra::Base
 
   delete '/invoices/delete/:id' do
     Invoice.destroy(params[:id])
-    require 'pry'; binding.pry
 
     redirect '/invoices'
   end
@@ -118,7 +117,7 @@ class LittleShopApp < Sinatra::Base
   get '/items' do
     @items = Item.all
 
-    erb :"item/index"
+    erb :"items/index"
   end
 
   get '/items-dashboard' do
@@ -127,13 +126,13 @@ class LittleShopApp < Sinatra::Base
     @most_recently_created_item = Item.most_recently_created
     @oldest_item = Item.oldest_item
 
-    erb :"item/dashboard"
+    erb :"items/dashboard"
   end
 
   get '/items/new' do
     @merchants = Merchant.all
 
-    erb :"item/create_an_item"
+    erb :"items/create_an_item"
   end
 
   post '/items/new' do
@@ -150,7 +149,7 @@ class LittleShopApp < Sinatra::Base
     @item = Item.find(params[:id])
     @merchant = Merchant.find_by(id: @item.merchant_id)
 
-    erb :"item/update_an_item"
+    erb :"items/update_an_item"
   end
 
   post '/items/:id/edit' do
@@ -168,6 +167,6 @@ class LittleShopApp < Sinatra::Base
     @item = Item.find(params[:id])
     @merchant = Merchant.find_by(id: @item.merchant_id)
 
-    erb :"item/individual_item"
+    erb :"items/individual_item"
   end
 end

@@ -11,7 +11,6 @@ RSpec.describe 'User updates invoice' do
     visit '/invoices/2134'
     click_button('Delete')
 
-    invoice = Invoice.find(2134)
     expect(current_path).to eq('/invoices')
     expect(page).to_not have_content('2134')
   end

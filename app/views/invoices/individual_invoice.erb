@@ -11,7 +11,10 @@
       <center>
         <h1> <%= "Invoice: #{@invoice.id} - #{@invoice.status}" %> </h1>
         <button class= 'editbutton'onclick="location.href='/invoices/<%=@invoice.id%>/edit'" type="button"> Edit</button>
-        <button class= 'deletebutton'onclick="location.href='/invoices/<%=@invoice.id%>/delete'" type="button" formmethod="DELETE"> Delete</button>
+        <form action="/invoices/delete/<%= @invoice.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button id="delete-button" type="submit">Delete</button>
+        </form>
       </center>
     </div>
 

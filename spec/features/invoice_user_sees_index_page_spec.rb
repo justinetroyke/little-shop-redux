@@ -31,8 +31,8 @@ RSpec.describe 'User visits index homepage' do
   it 'should have little shop header with buttons on merchants and items' do
     visit('/invoices')
 
-    expect(page).to have_button('Merchants')
-    expect(page).to have_button('Items')
+    expect(page).to have_link('Merchants')
+    expect(page).to have_link('Items')
   end
 end
 
@@ -49,12 +49,11 @@ RSpec.describe 'User clicking on invoice id to invoice page' do
     merchant = Merchant.create(id: 234, name: 'Strawberry')
     visit "/invoices/#{invoice.id}"
 
-<<<<<<< HEAD
-    expect(page).to have_content merchant.name.to_s
-    expect(page).to have_content invoice.status
+    expect(page).to have_content(invoice.status)
+    expect(page).to have_content(invoice.id)
   end
 
-  RSpec.describe 'User edits invoice' do
+  describe 'User edits invoice' do
     it 'should see invoice status and ID' do
       invoice = Invoice.create(
         id: 2134,
@@ -66,14 +65,9 @@ RSpec.describe 'User clicking on invoice id to invoice page' do
       )
       merchant = Merchant.create(id:234, name: 'Strawberry')
       visit "/invoices/#{invoice.id}"
-
-      expect(page).to have_content merchant.name.to_s
-      expect(page).to have_content invoice.status
+      expect(page).to have_content "Item Id"
+      expect(page).to have_content invoice.id
+      expect(page).to have_content "Item Title"
     end
-=======
-    expect(page).to have_content "Item Id"
-    expect(page).to have_content invoice.id
-    expect(page).to have_content "Item Title"
->>>>>>> 81ebbf2da3c56a87d1848a7b71c1e3d145321478
   end
 end

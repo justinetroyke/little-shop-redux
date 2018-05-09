@@ -25,7 +25,7 @@ RSpec.describe 'User updates invoice' do
     visit '/invoices/2134/edit'
 
     expect(page).to have_content(invoice.id)
-    expect(page).to have_content(invoice.status)
+    expect(page).to have_content('Pending')
   end
 
   it 'should see cancel and update invoice option' do
