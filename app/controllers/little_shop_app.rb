@@ -99,6 +99,16 @@ class LittleShopApp < Sinatra::Base
     erb :"invoices/edit"
   end
 
+  get '/invoice-dashboard' do
+    @status_percents = Invoice.status_percent
+    @high_price = Invoice.high_unit_price
+    @low_price = Invoice.low_unit_price
+    @high_qty = Invoice.high_qty
+    @low_qty = Invoice.low_qty
+
+    erb :"invoices/dashboard"
+  end
+
   get '/items' do
     @items = Item.all
 
