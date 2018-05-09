@@ -18,19 +18,33 @@
 
     <center>
       <div class="flex-container">
+        <% counter = 0 %>
         <% @merchants.each do |merchant| %>
-          <div class='individual-merchant-buttons'>
-            <form action="/merchants/<%=merchant.id%>/delete" method="POST">
-              <input type="hidden" name="_method" value="DELETE">
-              <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
-              <button style="float:right;" type="submit" class='deletebutton'>
-                Delete</button>
-            </form>
-            <a href='/merchants/<%=merchant.id%>/edit'><button class='edit-button-in-merchant-index'>
-              Edit</button></a>
-          </div>
+        <% counter += 1 %>
+          <% if counter.odd?%>
+            <div style="background-color: grey;" class='individual-merchant-buttons'>
+              <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+                <button style="float:right;" type="submit" class='deletebutton'>
+                  Delete</button>
+              </form>
+              <a href='/merchants/<%=merchant.id%>/edit'><button class='edit-button-in-merchant-index'>
+                Edit</button></a>
+            </div>
+            <% else %>
+              <div class='individual-merchant-buttons'>
+              <form action="/merchants/<%=merchant.id%>/delete" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <a href='/merchants/<%=merchant.id%>' style="float:left;"><%= merchant.name%></a>
+                <button style="float:right;" type="submit" class='deletebutton'>
+                  Delete</button>
+              </form>
+              <a href='/merchants/<%=merchant.id%>/edit'><button class='edit-button-in-merchant-index'>
+                Edit</button></a>
+            </div>
           <% end %>
-          <br>
+        <% end %>
       </div>
     </center>
   </body>
