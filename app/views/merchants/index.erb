@@ -20,7 +20,7 @@
       <div class="flex-container">
         <% counter = 0 %>
         <% @merchants.each do |merchant| %>
-        <% counter += 1 %>
+          <% counter += 1 %>
           <% if counter.odd?%>
             <div style="background-color: grey;" class='individual-merchant-buttons'>
               <form action="/merchants/<%=merchant.id%>/delete" method="POST">
