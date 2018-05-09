@@ -21,7 +21,7 @@
       <div class="merchant-container-div">
         <% @merchant_info.each do |merchant|%>
           <div class="merchant-div">
-            <h2 class="ind-merchant"><%=merchant.name%></h2>
+            <a href='merchants/<%=merchant.id%>'><h2 class="ind-merchant"><%=merchant.name%></h2></a>
             <h3>Item Count:</h3>
             <h4><%=merchant.item_count%></h4>
             <h3>Avg Item Price:</h3>
