@@ -29,7 +29,7 @@ RSpec.describe 'User updates invoice' do
   end
 
   it 'should see cancel and update invoice option' do
-    invoice = Invoice.create(
+    Invoice.create(
       id: 2134,
       customer_id: 1,
       merchant_id: 300,
