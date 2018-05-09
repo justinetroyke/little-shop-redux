@@ -125,7 +125,7 @@ RSpec.describe 'visitors' do
   describe 'looking int merchant box ' do
     it 'should see merchants item details ' do
       merchant = Merchant.create(name: 'walmart')
-      Item.create!(image: 'manjnkj',
+      item = Item.create!(image: 'manjnkj',
                    merchant_id: merchant.id,
                    name: 'pancake',
                    description: 'tates good',
