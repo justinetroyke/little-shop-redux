@@ -19,11 +19,11 @@
       </center>
     </div>
 
-    <div class="flex-container">
+    <div>
       <div class="merchant-container-div">
         <% @items.each do |item| %>
           <div class="merchant-dive" >
-            <a href="/items/#{<%=item.item_id%>}"class="ind-merchant"><h2><%=item.name%></h2></a>
+            <a href="/items/<%=item.id%>"class="ind-merchant"><h2><%=item.name%></h2></a>
             <div class="item-price-container" >
               <h3>$<%=item.unit_price%></h3>
             </div>
