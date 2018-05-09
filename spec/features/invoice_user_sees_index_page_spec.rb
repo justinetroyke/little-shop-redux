@@ -49,8 +49,31 @@ RSpec.describe 'User clicking on invoice id to invoice page' do
     merchant = Merchant.create(id: 234, name: 'Strawberry')
     visit "/invoices/#{invoice.id}"
 
+<<<<<<< HEAD
+    expect(page).to have_content merchant.name.to_s
+    expect(page).to have_content invoice.status
+  end
+
+  RSpec.describe 'User edits invoice' do
+    it 'should see invoice status and ID' do
+      invoice = Invoice.create(
+        id: 2134,
+        customer_id: 1,
+        merchant_id: 300,
+        status: 'pending',
+        created_at: '2009-02-07',
+        updated_at: '2014-03-15'
+      )
+      merchant = Merchant.create(id:234, name: 'Strawberry')
+      visit "/invoices/#{invoice.id}"
+
+      expect(page).to have_content merchant.name.to_s
+      expect(page).to have_content invoice.status
+    end
+=======
     expect(page).to have_content "Item Id"
     expect(page).to have_content invoice.id
     expect(page).to have_content "Item Title"
+>>>>>>> 81ebbf2da3c56a87d1848a7b71c1e3d145321478
   end
 end

@@ -93,6 +93,27 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/individual_invoice'
   end
 
+  get '/invoices/:id/edit' do
+    @invoice = Invoice.find(params['id'])
+
+    erb :"invoices/edit"
+  end
+
+  get '/invoices-dashboard' do
+    @status_amounts = Invoice.status_percent
+    @total_count = Invoice.all.count
+    # require 'pry';binding.pry
+    @pending_percent = ((@status_amounts['pending'].to_f/ @total_count)* 100).round(2)
+    @shipped_percent = ((@status_amounts['shipped'].to_f/ @total_count)* 100).round(2)
+    @returned_percent = ((@status_amounts['returned'].to_f/ @total_count)* 100).round(2)
+    @high_price = Invoice.high_unit_price
+    @low_price = Invoice.low_unit_price
+    @high_qty = Invoice.high_qty
+    @low_qty = Invoice.low_qty
+
+    erb :"invoices/dashboard"
+  end
+
   get '/items' do
     @items = Item.all
 

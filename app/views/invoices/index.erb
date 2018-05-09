@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/merchant.css" title="CSS" type="text/css" />
     <%=erb(:'partials/static_links')%>
   </head>
-
 <body>
   <%=erb(:'partials/nav_bar')  %>
   <div style="width:relative;height:100px;border:3px solid #000;">
@@ -12,8 +11,6 @@
     <h1> Invoices </h1>
     <center>
   </div>
-
-
     <% @invoices.each do |invoice| %>
       <center>
       <div style="width:60%;height:25px;border:3px solid #000;margin-top:15px;">
