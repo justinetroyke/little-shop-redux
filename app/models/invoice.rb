@@ -10,6 +10,22 @@ class Invoice < ActiveRecord::Base
     Invoice.group(:status).order('count_all').count
   end
 
+  def self.total_count
+    Invoice.all.count
+  end
+
+  def self.pending_percent
+    ((self.status_percent['pending'].to_f/ self.total_count)* 100).round(2)
+  end
+
+  def self.shipped_percent
+    ((self.status_percent['shipped'].to_f/ self.total_count)* 100).round(2)
+  end
+
+  def self.returned_percent
+    ((self.status_percent['returned'].to_f/ self.total_count)* 100).round(2)
+  end
+
   def self.high_unit_price
     InvoiceItem.all.sort_by(&:unit_price).reverse.first.invoice_id
   end
