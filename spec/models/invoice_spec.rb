@@ -144,7 +144,7 @@ RSpec.describe Invoice do
           updated_at: '2014-03-15'
         )
         value_r = 50
-  
+        
         expect(Invoice.returned_percent).to eq(value_r)
       end
     end
