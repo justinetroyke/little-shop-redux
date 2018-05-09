@@ -18,7 +18,6 @@
         <h1 class ="top-merchant">Merchant with Highest Price Item: <br>
         <a href="/merchants/<%=@highest_price_item.id%>"><%=@highest_price_item.name%></h1></a>
       </div>
-
       <div class="merchant-container-div">
         <% @merchant_info.each do |merchant|%>
           <div class="merchant-div">
@@ -26,9 +25,9 @@
             <h3>Item Count:</h3>
             <h4><%=merchant.item_count%></h4>
             <h3>Avg Item Price:</h3>
-            <h4><%=merchant.avg_price%></h4>
+            <h4>$<%= '%.2f' % (merchant.avg_price.to_f/100) %></h4>
             <h3>Total Cost of Items:</h3>
-            <h4><%=merchant.total_cost%></h4>
+            <h4>$<%= '%.2f' % (merchant.total_cost.to_f/100) %></h4>
           </div>
         <% end %>
       </div>

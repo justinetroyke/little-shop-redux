@@ -8,7 +8,7 @@ RSpec.describe 'User updates invoice' do
       created_at: '2009-02-07',
       updated_at: '2014-03-15'
     )
-    visit './invoices/2134'
+    visit '/invoices/2134'
     click_button('Delete')
 
     invoice = Invoice.find(2134)
