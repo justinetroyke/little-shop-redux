@@ -85,4 +85,77 @@ RSpec.describe 'visitors' do
       expect(current_path).to eq('/items')
     end
   end
+
+  describe 'clicking on merchant with highest price item' do
+    it 'should be redirected to individual merchant page' do
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
+      visit('/merchants-dashboard')
+
+      within find('.top-merchant') do
+        click_link(merchant.name)
+      end
+
+      expect(current_path).to eq("/merchants/#{merchant.id}")
+    end
+  end
+
+  describe 'clicking on merchant with most items' do
+    it 'should be redirected to individual merchant page' do
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
+      visit('/merchants-dashboard')
+
+      within find('.top-revenue') do
+        click_link(merchant.name)
+      end
+
+      expect(current_path).to eq("/merchants/#{merchant.id}")
+    end
+  end
+
+  describe 'looking int merchant box ' do
+    it 'should see merchants item details ' do
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
+      visit('/merchants-dashboard')
+      item_count = 1
+      avg_item_price = (item.unit_price / item_count) / 100
+      total_cost_of_items = item.unit_price / 100
+
+      expect(page).to have_content(item_count)
+      expect(page).to have_content(avg_item_price)
+      expect(page).to have_content(total_cost_of_items)
+    end
+  end
+
+  describe 'clicking on merchant name inside merchant box' do
+    it 'should be redirected to individual merchant page' do
+      merchant = Merchant.create(name: 'walmart')
+      Item.create!(image: 'manjnkj',
+                   merchant_id: merchant.id,
+                   name: 'pancake',
+                   description: 'tates good',
+                   unit_price: 100)
+      visit('/merchants-dashboard')
+
+      within find('.merchant-div') do
+        click_link(merchant.name)
+      end
+
+      expect(current_path).to eq("/merchants/#{merchant.id}")
+    end
+  end
 end
