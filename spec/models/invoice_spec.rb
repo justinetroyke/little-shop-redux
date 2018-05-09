@@ -59,8 +59,8 @@ RSpec.describe Invoice do
         update_parameters = {customer_id: 728, status: 'shipped'}
         Invoice.delete(1)
 
-        expect(Invoice.find(1).customer_id).to be_nil
-        expect(Invoice.find(1).status).to eq('shipped')
+        expect(Invoice.find_by_id(1).customer_id).to be_nil
+        expect(Invoice.find_by_id(1).status).to eq('shipped')
       end
     end
 

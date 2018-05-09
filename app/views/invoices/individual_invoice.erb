@@ -27,15 +27,13 @@
         <th>Quantity</th>
         <th>Unit Price</th>
       </tr> 
-</table>
-
       <% @invoice_items.each do |invoice_item| %>
-          <tr>
-            <td><%= invoice_item.item.id %></td>
-            <td><%= invoice_item.item.name %></td>
-            <td><%= invoice_item.quantity %></td>
-            <td>$<%= '%.2f' % (invoice_item.item.unit_price.to_f/100) %></td>
-          </tr>
+        <tr>
+          <td><%= invoice_item.item.id %></td>
+          <td><%= invoice_item.item.name %></td>
+          <td><%= invoice_item.quantity %></td>
+          <td>$<%= '%.2f' % (invoice_item.item.unit_price.to_f/100) %></td>
+        </tr>
       <% end %>
     </table>
   </body>

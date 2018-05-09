@@ -13,15 +13,15 @@
   </div>
     <% @invoices.each do |invoice| %>
       <center>
-      <div style="width:60%;height:25px;border:3px solid #000;margin-top:15px;">
-        <form action="/invoices/<%=invoice.id%>/delete" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-            <a style="float:left;margin-left:25px;" href='/invoices/<%=invoice.id%>' style="float:left;"><%= invoice.id%></a>
-            <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
-        </form>
-        <form action ="/invoices/<%= invoice.id %>/edit">
-            <button style="float:right;" type="submit" class='editbutton' href='/invoices/<%=invoice.id%>/edit'> Edit</button>
-        </form>
+        <div style="width:60%;height:25px;border:3px solid #000;margin-top:15px;">
+          <form action="/invoices/<%=invoice.id%>/delete" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+              <a style="float:left;margin-left:25px;" href='/invoices/<%=invoice.id%>' style="float:left;"><%= invoice.id%></a>
+              <button style="float:right;" type="submit" class='deletebutton'> Delete</button>
+          </form>
+          <form action ="/invoices/<%= invoice.id %>/edit">
+              <button style="float:right;" type="submit" class='editbutton' href='/invoices/<%=invoice.id%>/edit'> Edit</button>
+          </form>
         </div>
       </center>
     <% end %>
