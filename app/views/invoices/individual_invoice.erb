@@ -20,14 +20,15 @@
         <h2><%= @invoice.merchant_id %></h2>
       <center>
     </div>
-
     <table border= "5" style="width:100%">
       <tr>
         <th>Item Id</th>
         <th>Item Title</th>
         <th>Quantity</th>
         <th>Unit Price</th>
-      </tr>
+      </tr> 
+</table>
+
       <% @invoice_items.each do |invoice_item| %>
           <tr>
             <td><%= invoice_item.item.id %></td>
