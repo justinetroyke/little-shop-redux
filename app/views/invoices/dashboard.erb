@@ -4,7 +4,7 @@
     <title>Invoices Dashboard</title>
     <link rel="stylesheet" href="/common_header.css" title="text/css">
     <link rel="stylesheet" href="/secondary_header.css" title="text/css">
-    <link rel="stylesheet" href="/dashboard.css" title="text/css">
+    <link rel="stylesheet" href="/invoice_dashboard.css" title="text/css">
   </head>
   <body>
     <header>
@@ -21,27 +21,25 @@
       <h1>Invoice Dashboard</h1>
     </div>
     <div class="flex-container">
-      <div id="item-count">
+      <div id="status-percent">
         <h4>Status Percentages</h4>
-        <h6>Pending:<%=@pending_percent%>%</h6>
-        <h6>Shipped:<%=@shipped_percent%>%</h6>
-        <h6>Returned:<%=@returned_percent%>%</h6>
+        <h6>Pending: <%=@pending_percent%>%</h6>
+        <h6>Shipped: <%=@shipped_percent%>%</h6>
+        <h6>Returned: <%=@returned_percent%>%</h6>
       </div>
-      <div id="item-avg-price">
-        <h4>High Price</h4>
-        <h6><%= @high_price %></h6>
+      <div id="high-low">
+        <h4>Unit Price</h4>
+        <h5>Highest</h5>
+        <h6>Invoice:  <%= @high_price %></h6>
+        <h5>Lowest</h5>
+        <h6>Invoice:  <%= @low_price %></h6>
       </div>
-      <div id="item-avg-price">
-        <h4>Low Price</h4>
-        <h6><%= @low_price %></h6>
-      </div>
-      <div id="item-avg-price">
-        <h4>High Quantity</h4>
-        <h6><%= @high_qty %></h6>
-      </div>
-      <div id="item-avg-price">
-        <h4>Low Quantity</h4>
-        <h6><%= @low_qty %></h6>
+      <div id="high-low">
+        <h4>Quantity</h4>
+        <h5>Highest</h5>
+        <h6>Invoice:  <%= @high_qty %></h6>
+        <h5>Lowest</h5>
+        <h6>Invoice:  <%= @low_qty %></h6>
       </div>
     </div>
   </body>

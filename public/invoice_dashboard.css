@@ -1,0 +1,39 @@
+.flex-container {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 350px;
+  width: 100%;
+}
+
+.flex-container>* {
+  width: 33%;
+  margin-top: 25px;
+  border: 3px solid black;
+  height: 100%;
+}
+
+#status-percent {
+  text-align: center;
+  margin-right: 25px;
+}
+
+#high-low {
+  text-align: left;
+  margin-right: 25px;
+}
+
+h6 {
+  font-size: 20px;
+  margin: 30px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 35px;
+}
+
+h5 {
+  font-size: 25px;
+  text-decoration: underline;
+  margin: 10px;
+}
