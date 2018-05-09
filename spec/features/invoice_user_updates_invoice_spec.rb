@@ -53,7 +53,7 @@ RSpec.describe 'User updates invoice' do
       updated_at: '2014-03-15'
     )
 
-    select('Shipped', from: 'status')
+    select('Shipped', from: 'status-select')
     click_button('Update Invoice')
 
     invoice = Invoice.find(2134)

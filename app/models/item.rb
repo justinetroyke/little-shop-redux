@@ -24,8 +24,4 @@ class Item < ActiveRecord::Base
   def self.oldest_item
     Item.all.sort_by(&:created_at).first
   end
-
-  def self.item_info_for_chart
-    Merchant.joins(:items).select("merchants.*, merchant.items.count as item_count, (item.unit_price.to_f/100) as item_price").group("item_count")
-  end
 end

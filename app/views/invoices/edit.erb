@@ -19,7 +19,7 @@
         <form class="update-invoice" action="/invoices/<%= @invoice.id %>/edit" method="POST">
           <h1>Invoice</h1>
           <p>Merchant</p>
-          <select name="merchants">
+          <select name="merchant_id">
             <% @merchants.each do |merchant| %>
               <% if merchant == @invoice.merchant %>
                 <option selected="selected" value="<%= merchant.id %>"><%= merchant.name %></option>
@@ -29,7 +29,7 @@
             <% end %>
           </select>
           <p>Status</p>
-          <select name="status">
+          <select id="status-select" name="status">
             <% if @invoice.status == :returned %>
               <option value="pending"><%= "Pending" %></option>
               <option value="shipped"><%= "Shipped" %></option>
